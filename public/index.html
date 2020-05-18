@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ecothink">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bem Vindo ao EcoThink</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/calendario.css">
+     <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/3732f07a5a.js" crossorigin="anonymous"></script>
+    <!-- angular / modules -->
+	<script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+	<script src="js/main.js"></script>
+	<!-- controllers -->
+    <script src="js/controllers/index-controller.js"></script>
+    <script src="js/controllers/perfilController.js"></script>
+    <script src="js/controllers/cadastro-controller.js"></script>
+    <script src="js/controllers/calendario-controller.js"></script>
+    <!-- root controller -->
+    <script src='js/controllers/rootController.js'></script>
     
+    <!-- cdn animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<body ng-class="{'bg-success':isLogin}">
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
 </body>
 </html>

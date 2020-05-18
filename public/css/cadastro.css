@@ -1,0 +1,23 @@
+.fab{
+    font-size: 60px;
+    text-align: center;
+
+}
+.fa-google-plus{
+    color:red;
+}
+.fa-twitter{
+    color:cyan;
+}
+.fa-facebook{
+    color:blue;
+}
+.cadastro{
+    font-weight: 400;
+}
+.login{
+    font-weight: 250;
+}
+.arredondar{
+    border-radius: 1rem !important;
+}
