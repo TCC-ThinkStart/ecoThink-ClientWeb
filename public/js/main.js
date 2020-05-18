@@ -25,6 +25,14 @@ angular.module('ecothink',['ngRoute'])
         $routeProvider.when('/user/calendario',{
             templateUrl:'partials/calendario.html',
             controller:'CalendarioController'
+        });
+        $routeProvider.when('/user/eventos',{
+            templateUrl:'partials/eventos.html',
+            controller:'EventosController'
+        });
+        $routeProvider.when('/user/evento',{
+            templateUrl:'partials/evento.html',
+            controller:'EventosController'
         })
         //obrigando o usuario a ser redirecionado para '/'
         $routeProvider.otherwise({redirectTo: '/home'});
