@@ -33,6 +33,10 @@ angular.module('ecothink',['ngRoute'])
         $routeProvider.when('/user/evento',{
             templateUrl:'partials/evento.html',
             controller:'EventosController'
+        });
+        $routeProvider.when('/user/usuario',{
+            templateUrl:'partials/usuario.html',
+            controller:'UsuarioController'
         })
         //obrigando o usuario a ser redirecionado para '/'
         $routeProvider.otherwise({redirectTo: '/home'});

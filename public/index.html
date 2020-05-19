@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/calendario.css">
     <link rel="stylesheet" href="css/eventos.css">
+    <link rel="stylesheet" href="css/usuario.css">
      <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3732f07a5a.js" crossorigin="anonymous"></script>
     <!-- angular / modules -->
@@ -23,6 +24,7 @@
     <script src="js/controllers/cadastro-controller.js"></script>
     <script src="js/controllers/calendario-controller.js"></script>
     <script src="js/controllers/eventosController.js"></script>
+    <script src="js/controllers//usuarioController.js"></script>
     <!-- root controller -->
     <script src='js/controllers/rootController.js'></script>
     
@@ -32,6 +34,25 @@
 <body ng-class="{'bg-success':isLogin}">
     <div class="container">
         <ng-view></ng-view>
+          <!-- chat footer -->
+          <div ng-if='isUser' class="row">
+            <div class="col-12 fixed-bottom bg-white p-3 text-center rounded">
+                <div class="row">
+                   <div class="col-3">
+                    <a href="/user/eventos"><i class="fas fa-home"></i></a>
+                   </div>
+                   <div class="col-3">
+                    <i class="fas fa-search"></i>
+                   </div>
+                   <div class="col-3">
+                    <a href="/user/calendario"><i class="far fa-calendar-plus"></i></a>
+                   </div>
+                   <div class="col-3">
+                    <a href="/user/perfil"><i class="fas fa-user-alt"></i></a>
+                   </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
