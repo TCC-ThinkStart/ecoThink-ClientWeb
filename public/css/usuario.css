@@ -20,7 +20,6 @@
 /* pc e telas medias  */
 @media screen and (min-width:992px){
     .acoes-recentes{
-        margin-top: 0.25rem;
         background-size: 100%!important;
         width: auto !important;
         object-fit: contain;
@@ -31,10 +30,13 @@
         background-repeat: no-repeat, repeat!important;
         transition: width 0.25s,height 0.25s,background-size 0.5s;
         border-radius: 1.25rem!important;
-        margin-bottom: 0.5rem;
+        margin-left: 2.5rem;
+        margin-top: 0.25rem;
+        margin-bottom: 4.5rem;
         align-items: center !important;
+        align-content: center;
         display: grid;
-        margin: 2rem;
+        /* margin: 2.5rem; */
     }
     .acoes-recentes:hover{
         padding: 0.5rem;

@@ -22,6 +22,10 @@ angular.module('ecothink',['ngRoute'])
             templateUrl:'partials/perfil.html',
             controller:'PerfilController'
         });
+        $routeProvider.when('/user/editarPerfil',{
+            templateUrl:'partials/editarPerfil.html',
+            controller:'PerfilController'
+        });
         $routeProvider.when('/user/calendario',{
             templateUrl:'partials/calendario.html',
             controller:'CalendarioController'
@@ -36,6 +40,10 @@ angular.module('ecothink',['ngRoute'])
         });
         $routeProvider.when('/user/usuario',{
             templateUrl:'partials/usuario.html',
+            controller:'UsuarioController'
+        });
+        $routeProvider.when('/user/descobrir',{
+            templateUrl:'partials/descobrir.html',
             controller:'UsuarioController'
         })
         //obrigando o usuario a ser redirecionado para '/'
