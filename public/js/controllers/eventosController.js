@@ -2,4 +2,9 @@ angular.module('ecothink').controller('EventosController',function($scope,$rootS
     console.log('entrou no controller de eventos')
 
     $rootScope.isUser =true;
+
+    $rootScope.isLogin = false;
+
+    $rootScope.isDark = false;
+
 });

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/calendario.css">
     <link rel="stylesheet" href="css/eventos.css">
     <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="css/criarevento.css">  
      <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3732f07a5a.js" crossorigin="anonymous"></script>
     <!-- angular / modules -->
@@ -25,6 +26,7 @@
     <script src="js/controllers/calendario-controller.js"></script>
     <script src="js/controllers/eventosController.js"></script>
     <script src="js/controllers//usuarioController.js"></script>
+    <script src="js/controllers/criarEventoController.js"></script>
     <!-- root controller -->
     <script src='js/controllers/rootController.js'></script>
     
@@ -38,12 +40,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
-<body ng-class="{'bg-success':isLogin}">
+<body ng-class="{'bg-success':isLogin,'darkMode':isDark}">
     <div class="container">
         <ng-view></ng-view>
           <!-- chat footer -->
-          <div ng-if='isUser' class="row ">
-            <div class="col-12 fixed-bottom bg-white p-3 text-center rounded animated fadeInLeft delay-1s slow ">
+          <div ng-if='isUser' class="row">
+            <div  class="col-12 fixed-bottom bg-white p-3 text-center rounded animated fadeInLeft delay-1s slow ">
                 <div class="row">
                    <div class="col-3">
                     <a href="/user/eventos"><i class="fas fa-home"></i></a>
