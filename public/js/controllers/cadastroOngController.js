@@ -1,5 +1,5 @@
 angular.module('ecothink').controller('CadastroOngController',function($scope,$http,$location,$window,$rootScope){
-    console.log('entrou no controller de cadastro da ong');
+   
 
     $rootScope.isLogin = false;
     $rootScope.isDark = true; 
@@ -15,12 +15,29 @@ angular.module('ecothink').controller('CadastroOngController',function($scope,$h
             }else{
                 return true
             }
-           console.log(usuario)
             
         }else{
             
             return true
         }
         
+    }
+    $scope.submeter = (usuario)=>{
+        $http.post('http://localhost:4200/login',usuario)
+        .then(results=>{
+            if(results.data.auth == true){
+                window.location.href  = '/user/perfil';
+            
+            }else if(results.data.auth == false) {
+                window.location.href  = '/home/cadastro';
+               
+            
+            }else{
+                console.log('nao entrou em nenhum if')
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
 });
