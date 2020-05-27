@@ -1,4 +1,4 @@
-angular.module('ecothink',['ngRoute'])
+angular.module('ecothink',['ngRoute','ui.mask'])
 .config(function($routeProvider,$locationProvider){
         //habilidando modo de html
         $locationProvider.html5Mode(true);
