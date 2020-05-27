@@ -1,0 +1,79 @@
+    
+        <div class="row text-white">
+            <!-- conteudo do cadastro -->
+            <div class="col-sm-8 mx-auto cadastro p-4">
+                <!-- Logo -->
+                <div class="row">
+                    <div class="col-6 offset-3 col-sm-3 offset-sm-5 col-md-4 offset-md-4 animated zoomIn delay-1s fast">
+                        <img src="imgs/logo.png" alt="Logo EcoThink" class="img-fluid d-block logo">
+                    </div>
+                </div>
+                <!-- titulo -->
+                <div class="row ">
+                    <div class="col-12 titulo-cadastro bounceIn delay-1s fast">
+                        <div class="text-group text-center ">
+                            <h3 class="display-4 ">Registrar</h3>
+                            <p class="lead">Cadastre sua ONG em nosso site !</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- formularios -->
+                <div class="row bounceIn delay-1s slow">
+                    <div class="col-12 col-sm-12 p-4 mt-2 text-dark shadow bg-white arredondar">
+                        <form novalidate name="formulario" ng-submit="submeter(usuario)">
+                        <!-- form -->
+                        <!-- mensagem -->
+                        <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+                            <div class="row">
+                                <div class="col-12 form-cadastro">
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input type="text" name="nome" ng-model="usuario.nome"  class="form-control form-control-md" ng-class="{'is-valid':isValid}" placeholder="Digite seu nome" required>
+                                        <div ng-if="isValid"  class="valid-feedback">
+                                            Valido!
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label> CNPJ</label>
+                                        <input type="text" name="cnpj" ng-model="usuario.cnpj" ui-mask="99.999.999/9999-99"  ng-class="{'is-valid':isValid}" ui-placeholder class="form-control form-control-md" ui-mask-placeholder-char="_" placeholder="99.999.999/9999-99" required>
+                                        <div ng-if="isValid"  class="valid-feedback">
+                                            Valido!
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" name="email" ng-model="usuario.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  ng-class="{'is-valid':isValid}" class="form-control form-control-md "  placeholder="Digite seu email" required>
+                                        <div ng-if="isValid"  class="valid-feedback">
+                                            Valido!
+                                          </div>
+                                        <span class="alert-danger" ng-show="formulario.email.$dirty&&formulario.email.$error.pattern">Entre com um email valido</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Senha</label>
+                                        <input type="password" name="senha" ng-model="usuario.senha" class="form-control form-control-md "  ng-class="{'is-valid':isValid}" placeholder="Digite sua senha" required>
+                                        <div ng-if="isValid"  class="valid-feedback">
+                                            Valido!
+                                          </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Senha</label>
+                                        <input type="password" name="confirm" ng-model="usuario.confirmar" class="form-control form-control-md " ng-class="{'is-valid':isValid}"  placeholder="Digite sua senha novamente" >
+                                        <a href="/" class="text-dark">Voltar ao inicio</a>
+                                        <div ng-if="isValid"  class="valid-feedback">
+                                            Valido!
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- buttom -->
+                            <div class="row">
+                                <div class="col-12 botao-cadastro ">
+                                <button class="btn btn-block mx-auto shadow bg-info p-3 mt-3 mb-4 border-rounded text-white" type="submit" ng-disabled="submitar(usuario)">Cadastrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        

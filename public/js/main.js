@@ -14,6 +14,10 @@ angular.module('ecothink',['ngRoute','ui.mask'])
             controller:'CadastroController'
 
         });
+        $routeProvider.when('/home/cadastrong',{
+            templateUrl:'partials/cadastrong.html',
+            controller:'CadastroOngController'
+        });
         $routeProvider.when('/home/login',{
             templateUrl:'partials/login.html',
             controller:'IndexController'
