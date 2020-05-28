@@ -13,7 +13,6 @@ angular.module('ecothink').controller('CadastroController', function ($scope, $h
             }
 
         } else {
-
             return true
         }
 
