@@ -105,3 +105,12 @@ para a atualização desses dados no servidor.
 Nesta Pagina  o controller da pagina no momento que carregar vai solicitar uma requisição HTTP _get_
 para o Servidor , solicitando 10 eventos em ordem aleatoria , porem esses eventos em ordem aleatoria,deverao ser do mesmo estado na qual o usuario tem registrado no seu endereço.
 Depois de receber os dados aleatorios dos eventos , a pagina irá mostrar esses dados de maneira dinamica na tela.
+
+### Pagina Eventos
+
+![Eventos](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/eventos.png)
+
+Nesta Pagina , quando o Controller de Eventos for solicitado , irá disparar uma solicitação de
+HTTP _get_ para o Servidor,soliciando 10 eventos com paginação .
+Caso o Usuario quiser visualizar mais eventos , no final da pagina tem um botao para visualizar mais eventos ,assim vai disparar mais uma solicitação http mudando a paginação e solicitando 
+mais 10 eventos.
