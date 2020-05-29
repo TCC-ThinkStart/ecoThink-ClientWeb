@@ -23,4 +23,19 @@ A maioria das paginas irá se comunicar ao servidor por requisições _HTTP_.
 Vou dividir cada bloco para a as informações de requisições na qual será comunicado.
 
 ### Pagina Login
-![Login](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Login](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/login.png)
+
+Na Pagina de login será enviado ao backend um objeto de _usuario_ , esse objeto de usuario 
+contem todas as informações do mesmo , passado pelos _inputs_ , ou seja, existem duas informações
+de dados:
+    
+- Email 
+- Senha
+
+E apos efetuado um login de sucesso será repassado essas informações para o Cliente 
+
+- Auth
+- Token
+
+mais ou menos como o exemplo desse codigo :
+> auth: true, token: iejfiwejfi39393838djfndjkskjn23jkn
