@@ -41,6 +41,10 @@ mais ou menos como o exemplo desse codigo :
 
 > auth: true, token: iejfiwejfi39393838djfndjkskjn23jkn
 
+Bom , aplicada esta regra de negocios e usuario Corretamente Autenticado Pelo _Login_ o controller
+desta pagina é responsavel por injetar informações comunicando que o usuario esta devidamente logado
+e inserindo essas informações do usuario por cookies ou dados salvos por localStorage
+
 ### Pagina Cadastro de Usuario 
 ![cadastroUsu](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/cadastroUsu.png)
 
@@ -77,3 +81,20 @@ no objeto de _usuario_ , essas informaçoes de endereço são :
 apos efetuado um cadastro de sucesso será repassado informações de codigo para o Cliente Web
 informando que o cadastro foi efetuado com sucesso e redirecionando ele para a o Login !
 
+## Pagina Perfil 
+![Perfil](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/perfil.png)
+
+Na Pagina de perfil percebemos uma coisa , a rota para a navegação mudou , e com isso é aplicado
+uma regra de negocios da aplicação e todas as rotas com _user_ é aplicada esta regra de negocios
+
+> Toda pagina no qual tem o _user_ na rota, o usuario precisa estar logado , caso não esteja , o mesmo será redirecionado para a rota de _login_ para autenticar sua solicitação
+
+Consumindo dados gerados por localStorage , a pagina de perfil pode redirecionar para edição de perfil ou para criação de eventos.
+Na mesma pagina o usuario , ele poderá editar sua senha para uma nova na sua escolha , com isso , 
+será ativado uma requisição HTTP _put_ enviando um objeto de _usuario_ com as seguintes informações:
+
+- Nome
+- Email
+- Senha Nova
+
+para a atualização desses dados no servidor.
