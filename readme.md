@@ -38,4 +38,10 @@ E apos efetuado um login de sucesso será repassado essas informações para o C
 - Token
 
 mais ou menos como o exemplo desse codigo :
+
 > auth: true, token: iejfiwejfi39393838djfndjkskjn23jkn
+
+### Pagina Cadastro de Usuario 
+![cadastroUsu](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/cadastroUsu.png)
+
+
