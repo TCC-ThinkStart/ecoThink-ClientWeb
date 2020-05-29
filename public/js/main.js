@@ -53,7 +53,11 @@ angular.module('ecothink', ['ngRoute', 'ui.mask'])
         $routeProvider.when('/user/descobrir', {
             templateUrl: 'partials/descobrir.html',
             controller: 'UsuarioController'
-        })
+        });
+        $routeProvider.when('/user/pesquisar', {
+            templateUrl: 'partials/pesquisar.html',
+            controller: 'PesquisarController'
+        });
         //obrigando o usuario a ser redirecionado para '/'
         $routeProvider.otherwise({ redirectTo: '/home' });
     });
