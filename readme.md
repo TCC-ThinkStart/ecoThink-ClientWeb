@@ -59,7 +59,7 @@ contem as informações passadas pelos _inputs_ , ou seja , existem  informaçõ
 apos efetuado um cadastro de sucesso será repassado informações de codigo para o Cliente Web
 informando que o cadastro foi efetuado com sucesso 
 
-## Pagina Cadastro de Ong
+### Pagina Cadastro de Ong
 ![cadastroOng](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/cadastroOng.png)
 
 
@@ -81,7 +81,7 @@ no objeto de _usuario_ , essas informaçoes de endereço são :
 apos efetuado um cadastro de sucesso será repassado informações de codigo para o Cliente Web
 informando que o cadastro foi efetuado com sucesso e redirecionando ele para a o Login !
 
-## Pagina Perfil 
+### Pagina Perfil 
 ![Perfil](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/perfil.png)
 
 Na Pagina de perfil percebemos uma coisa , a rota para a navegação mudou , e com isso é aplicado
@@ -98,3 +98,10 @@ será ativado uma requisição HTTP _put_ enviando um objeto de _usuario_ com as
 - Senha Nova
 
 para a atualização desses dados no servidor.
+
+### Pagina Descobrir 
+![Descobrir](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/descobrir.png)
+
+Nesta Pagina  o controller da pagina no momento que carregar vai solicitar uma requisição HTTP _get_
+para o Servidor , solicitando 10 eventos em ordem aleatoria , porem esses eventos em ordem aleatoria,deverao ser do mesmo estado na qual o usuario tem registrado no seu endereço.
+Depois de receber os dados aleatorios dos eventos , a pagina irá mostrar esses dados de maneira dinamica na tela.
