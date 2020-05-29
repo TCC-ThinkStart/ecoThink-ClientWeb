@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ecothink">
+
 <head>
     <base href="/">
     <meta charset="UTF-8">
@@ -12,17 +13,18 @@
     <link rel="stylesheet" href="css/calendario.css">
     <link rel="stylesheet" href="css/eventos.css">
     <link rel="stylesheet" href="css/usuario.css">
-    <link rel="stylesheet" href="css/criarevento.css">  
-     <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/criarevento.css">
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3732f07a5a.js" crossorigin="anonymous"></script>
     <!-- angular / modules -->
-	<script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-route.min.js"></script>
     <!-- angular mask -->
     <script src="js/lib/mask.min.js"></script>
-	<script src="js/main.js"></script>
-	<!-- controllers -->
+    <script src="js/main.js"></script>
+    <!-- controllers -->
     <script src="js/controllers/index-controller.js"></script>
+    <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/perfilController.js"></script>
     <script src="js/controllers/cadastro-controller.js"></script>
     <script src="js/controllers/calendario-controller.js"></script>
@@ -32,39 +34,44 @@
     <script src="js/controllers/cadastroOngController.js"></script>
     <!-- root controller -->
     <script src='js/controllers/rootController.js'></script>
-    
+
     <!-- cdn animate -->
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" />
     <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 </head>
+
 <body ng-class="{'bg-success':isLogin,'darkMode':isDark}">
     <div class="container">
         <ng-view></ng-view>
-          <!-- chat footer -->
-          <div ng-if='isUser' class="row">
-            <div  class="col-12 fixed-bottom bg-white p-3 text-center rounded animated fadeInLeft delay-1s slow ">
+        <!-- chat footer -->
+        <div ng-if='isUser' class="row">
+            <div class="col-12 fixed-bottom bg-white p-3 text-center rounded animated fadeInLeft delay-1s slow ">
                 <div class="row">
-                   <div class="col-3">
-                    <a href="/user/eventos"><i class="fas fa-home"></i></a>
-                   </div>
-                   <div class="col-3">
-                    <a href="/user/descobrir"><i class="fas fa-search"></i></a>
-                   </div>
-                   <div class="col-3">
-                    <a href="/user/calendario"><i class="far fa-calendar-plus"></i></a>
-                   </div>
-                   <div class="col-3">
-                    <a href="/user/perfil"><i class="fas fa-user-alt"></i></a>
-                   </div>
+                    <div class="col-3">
+                        <a href="/user/eventos"><i class="fas fa-home"></i></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/user/descobrir"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/user/calendario"><i class="far fa-calendar-plus"></i></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/user/perfil"><i class="fas fa-user-alt"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
