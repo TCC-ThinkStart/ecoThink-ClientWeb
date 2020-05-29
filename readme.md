@@ -44,4 +44,36 @@ mais ou menos como o exemplo desse codigo :
 ### Pagina Cadastro de Usuario 
 ![cadastroUsu](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/cadastroUsu.png)
 
+Na Pagina de cadastro de usuario será enviado um objeto de _usuario_ , esse objeto de usuario 
+contem as informações passadas pelos _inputs_ , ou seja , existem  informações de dados:
+
+- Nome
+- Nascimento(data)
+- Email 
+- Senha
+
+apos efetuado um cadastro de sucesso será repassado informações de codigo para o Cliente Web
+informando que o cadastro foi efetuado com sucesso 
+
+## Pagina Cadastro de Ong
+![cadastroOng](https://raw.githubusercontent.com/TCC-ThinkStart/ecoThink-ClientWeb/master/public/screenshoot/cadastroOng.png)
+
+
+Na Pagina de cadastro de ong será enviado um objeto de _usuario_ , esse objeto de usuario 
+contem as informações passadas pelos _inputs_ , ou seja , existem  informações de dados:
+
+- Nome
+- CNPJ
+- Email 
+- Senha
+
+e tambem contém informações passadas _inputs_ que são de endereço , essas informações tambem estão
+no objeto de _usuario_ , essas informaçoes de endereço são :
+
+- Endereço
+- Bairro
+- Nº
+
+apos efetuado um cadastro de sucesso será repassado informações de codigo para o Cliente Web
+informando que o cadastro foi efetuado com sucesso e redirecionando ele para a o Login !
 
