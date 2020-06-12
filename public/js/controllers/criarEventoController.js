@@ -1,7 +1,7 @@
-angular.module('ecothink').controller('CriarEventosController',function($scope,$rootScope,$http){
+angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http) {
     console.log('entrou no controller de eventos')
 
-    $rootScope.isUser =true;
+    $rootScope.isUser = true;
 
     $rootScope.isLogin = false;
 
@@ -9,36 +9,41 @@ angular.module('ecothink').controller('CriarEventosController',function($scope,$
 
     $scope.SelectFile = (e) => {
         const reader = new FileReader();
-        reader.onload = (e)=> {
-            const valida  = e.target.result.indexOf('data:image/')
+        reader.onload = (e) => {
+            const valida = e.target.result.indexOf('data:image/')
 
-            if(valida == 0 ){
-            //encriptada
-            $scope.PreviewImage = e.target.result;
-            $scope.$apply();
-            }else{
+            if (valida == 0) {
+                //encriptada
+                $scope.PreviewImage = e.target.result;
+                $scope.$apply();
+            } else {
                 alert('favor insira uma imagem')
             }
-            
-            
+
+
         };
-       
+
         reader.readAsDataURL(e.target.files[0]);
         console.log('entrou')
     };
-    $scope.submit = (event)=>{
+    $scope.submit = (event) => {
         event.img = $scope.PreviewImage;
         console.log(event)
 
-       $http.post('http://localhost:4200/upload',event)
-       .then(results=>{
-           console.log(results)
-       })
-       .catch(error=>console.error)
-    
+        $http.post('http://localhost:4200/upload', event)
+            .then(results => {
+                console.log(results)
+            })
+            .catch(error => console.error)
+
     }
-    $scope.imgRemove = ()=>{
+    $scope.imgRemove = () => {
         $scope.PreviewImage = null;
     }
-    
+
+
+    //chamando todas as cidades de SP
+    $http.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/SP/municipios')
+        .then(results => { $scope.municipios = results.data })
+        .catch(error => console.error(error))
 });

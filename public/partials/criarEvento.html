@@ -1,66 +1,107 @@
-    <div class="row">
-        <div class="col-sm-12  text-center textwhiteMode mb-2 ">
-            <div class="row">
-                <div class="col-12 bg-darkMode mb-3">
-                    <h3 class="h3 textwhiteMode">Criar Evento</h3>
-                </div>
+<div class="row">
+    <div class="col-sm-12  text-center textwhiteMode mb-2 ">
+        <div class="row">
+            <div class="col-12 bg-darkMode mb-3">
+                <h3 class="h3 textwhiteMode">Criar Evento</h3>
             </div>
-            <form novalidate encType="multipart/form-data">
+        </div>
+        <form novalidate encType="multipart/form-data">
             <div class="row">
                 <div class="col-md-4 offset-md-1 col-12 mb-5">
-                    <img class="img-fluid img-form" src="{{PreviewImage}}"/>
+                    <img class="img-fluid img-form" src="{{PreviewImage}}" />
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="text-group">
-                        <h5 class="display-5 text-left mb-5" >{{event.title}}</h5>
+                        <h5 class="display-5 text-left mb-5">{{event.title}}</h5>
                         <div class="form-group mb-5 row">
                             <div class="col-sm-5 ">
-                                <label class="custom-file-label-dark"> <i class="far fa-image"></i> Escolha uma Foto</label>
-                                <input type="file" ng-model="event.img"  name="eventImg" onchange="angular.element(this).scope().SelectFile(event)"  class="custom-file-input">
+                                <label class="custom-file-label-dark"> <i class="far fa-image"></i> Escolha uma
+                                    Foto</label>
+                                <input type="file" ng-model="event.img" name="eventImg"
+                                    onchange="angular.element(this).scope().SelectFile(event)"
+                                    class="custom-file-input">
                             </div>
                             <div class="col-sm-4 col-6">
-                                <label class="custom-file-label-dark" ng-click="imgRemove()"><i class="far fa-images"></i>Remover Foto</label>
+                                <label class="custom-file-label-dark" ng-click="imgRemove()"><i
+                                        class="far fa-images"></i>Remover Foto</label>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-md-2 col-12 col-form-label"><i class="fas fa-calendar"></i>Nome :</label>
+                <label for="staticEmail" class="col-md-2 col-12 col-form-label"><i class="fas fa-calendar"></i>Nome
+                    :</label>
                 <div class="col-md-10 col-12">
-                  <input type="text" ng-model="event.title" ui-mask="999.999.999.99" class="form-control-plaintext-dark" id="staticEmail" ui-mask-placeholder ui-mask-placeholder-char="_" placeholder="Google Meat and Greeat">
+                    <input type="text" ng-model="event.title" class="form-control-plaintext-dark" id="staticEmail"
+                        placeholder="Google Meat and Greeat">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword" class="col-md-2 col-12 col-form-label"><i class="fas fa-bars"></i>Categorias :</label>
+                <label for="inputPassword" class="col-md-2 col-12 col-form-label"><i class="fas fa-bars"></i>Categorias
+                    :</label>
                 <div class="col-md-5 col-12 mb-3">
                     <select class="custom-select form-control-plaintext-dark" id="inlineFormCustomSelect">
                         <option selected>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
-                        <option value="3">Three</option>    
-                      </select>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
                 <div class="col-md-5 col-12 mb-3">
-                    <select class="custom-select form-control-plaintext-dark" ng-model="event.adress" id="inlineFormCustomSelect">
+                    <select class="custom-select form-control-plaintext-dark" ng-model="event.adress"
+                        id="inlineFormCustomSelect">
                         <option selected>Endereço</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
-                        <option value="3">Three</option>    
-                      </select>
+                        <option value="3">Three</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword" class="col-md-2 col-12 col-form-label"><i class="fas fa-calendar-check"></i> Data Inicio</label>
+                <label for="inputPassword" class="col-md-2 col-12 col-form-label"><i class="fas fa-calendar-check"></i>
+                    Data Inicio</label>
                 <div class="col-md-5 col-6">
-                  <input type="datetime-local"  ng-model="event.dateInit" class="form-control-plaintext-dark" id="inputPassword">
+                    <input type="datetime-local" ng-model="event.dateInit" class="form-control-plaintext-dark"
+                        id="inputPassword">
                 </div>
                 <div class="col-md-5 col-6">
-                    <input type="datetime-local" ng-model="event.dateEnd" class="form-control-plaintext-dark" id="inputPassword">
-                  </div>
+                    <input type="datetime-local" ng-model="event.dateEnd" class="form-control-plaintext-dark"
+                        id="inputPassword">
+                </div>
             </div>
-            <div class="form-group mb-5 row">
+
+
+            <!-- Eventos -->
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <h3 class="text-center">Cadastre o Endereço</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-md-2 col-12 col-form-label">
+                    <i class="fas fa-map"></i>
+                    Logradouro:
+                </label>
+                <div class="col-md-7 col-9">
+                    <input type="text" ng-model="event.adress" class="form-control-plaintext-dark" id="inputPassword">
+                </div>
+                <div class="col-md-3 col-2">
+
+                    <input type="number" ng-model="event.adress.n" class="form-control-plaintext-dark"
+                        placeholder="Numero do Endereço">
+                </div>
+                <label for="inputPassword" class="col-md-2 col-12 col-form-label">
+                    <i class="fas fa-building"></i>
+                    Cidade:
+                </label>
+                <div class="col-md-10 col-12">
+                    <select ng-options="x.nome for x in municipios" ng-model="event.city"
+                        class="form-control-plaintext-dark"></select>
+                </div>
+            </div>
+            <div class="form-group  mb-5 row">
                 <div class="col-md-6 col-6 mb-5">
                     <button class="btn btn-lg btn-block btn-outline-dark">Cancelar</button>
                 </div>
@@ -68,6 +109,6 @@
                     <button class="btn btn-lg  btn-block btn-outline-danger" ng-click="submit(event)">Enviar</button>
                 </div>
             </div>
-            </form>
-        </div>
+        </form>
     </div>
+</div>
