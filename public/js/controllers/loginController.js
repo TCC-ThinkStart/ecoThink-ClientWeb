@@ -1,5 +1,5 @@
 angular.module('ecothink').controller('LoginController', function ($scope, $http, $location, $location) {
-    console.log('entrou no controller de login')
+
 
     $scope.submitar = (usuario) => {
         if (usuario.email && usuario.senha) {
