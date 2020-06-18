@@ -1,8 +1,6 @@
-angular.module('ecothink').run(function($rootScope,$http,$document,$compile){
+angular.module('ecothink').run(function ($rootScope) {
 
     $rootScope.isLogin = true;
-
     $rootScope.isDark = false;
-
-    $rootScope.isUser =true;
+    $rootScope.isUser = true;
 });
