@@ -28,7 +28,7 @@ angular.module('ecothink', ['ngRoute', 'ui.mask'])
         });
         $routeProvider.when('/user/editarPerfil', {
             templateUrl: 'partials/editarPerfil.html',
-            controller: 'PerfilController'
+            controller: 'EditarPerfilController'
         });
         $routeProvider.when('/user/calendario', {
             templateUrl: 'partials/calendario.html',
