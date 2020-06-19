@@ -19,8 +19,7 @@
     <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s fast">
         <div class="row">
             <div class="col-8 col-sm-8 offset-2 offset-sm-2">
-                <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="image profile"
-                    class="img-fluid img-profile">
+                <img src="{{PreviewImage}}" alt="image profile" class="img-fluid img-edit">
             </div>
         </div>
     </div>
@@ -30,6 +29,7 @@
     <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s fast">
         <div class="row">
             <div class="col-8 col-sm-8 offset-2 offset-sm-2  p-2">
+                <h5>{{usuario.nome}}</h5>
                 <div class="form-group">
                     <label class="lead"><i class="fas fa-font"></i> Nome</label>
                     <input type="text" ng-model="usuario.nome" ng-class="{'is-valid':isValid}" class="form-control"
@@ -68,7 +68,8 @@
                 </div>
                 <div class="form-group mb-5">
                     <a href="javascript:history.back()" class="btn btn-outline-danger mb-5">Cancelar</a>
-                    <button class="btn btn-dark  mb-5" type="submit" ng-disabled="submitar(usuario)">Enviar
+                    <button class="btn btn-dark  mb-5" type="submit" ng-click="enviar(usuario)"
+                        ng-disabled="submitar(usuario)">Enviar
                         Edição</button>
                 </div>
             </div>

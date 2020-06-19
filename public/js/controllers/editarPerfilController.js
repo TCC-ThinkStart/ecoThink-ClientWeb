@@ -28,4 +28,9 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
         reader.readAsDataURL(e.target.files[0]);
         console.log('entrou')
     }
+
+    $scope.enviar = (usuario) => {
+
+        console.log(usuario)
+    }
 });
