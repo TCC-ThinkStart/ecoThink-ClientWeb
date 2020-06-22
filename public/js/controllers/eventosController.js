@@ -1,10 +1,20 @@
-angular.module('ecothink').controller('EventosController',function($scope,$rootScope,$http){
-    console.log('entrou no controller de eventos')
+angular.module('ecothink').controller('EventosController', function ($scope, $rootScope, $http, recursoLogin) {
 
-    $rootScope.isUser =true;
+    recursoLogin.verify;
+
+    $rootScope.isUser = true;
 
     $rootScope.isLogin = false;
 
     $rootScope.isDark = false;
+
+
+    $http.get($rootScope.api + '/evento')
+        .then(results => {
+            $scope.events = results.data
+        })
+        .catch(error => console.warn(error))
+
+
 
 });
