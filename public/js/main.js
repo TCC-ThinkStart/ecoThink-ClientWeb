@@ -22,6 +22,10 @@ angular.module('ecothink', ['ngRoute', 'meusServicos', 'ui.mask'])
             templateUrl: 'partials/login.html',
             controller: 'LoginController'
         });
+        $routeProvider.when('/home/confirm', {
+            templateUrl: 'partials/confirmarCadastro.html',
+            controller: 'ConfirmarCadastroController'
+        });
         $routeProvider.when('/user/perfil', {
             templateUrl: 'partials/perfil.html',
             controller: 'PerfilController'

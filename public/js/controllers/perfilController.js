@@ -11,4 +11,6 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
         localStorage.clear();
         $location.path('home')
     }
+
+    $scope.userName = localStorage.getItem('userName')
 });

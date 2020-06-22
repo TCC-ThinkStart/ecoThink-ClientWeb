@@ -1,100 +1,102 @@
 <div>
-        <!-- icones e legenda -->
-        <div class="row p-3">
-            <div class="col-sm-12 legenda-perfil animated  bounceInLeft delay-1s slow">
-                <div class="row">
-                    <div class="col-2 icone-voltar">
-                        <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
-                    </div>
-                    <div class="col-8 legenda text-center">
-                        <h3 class="h3">Perfil</h3>
-                    </div>
-                    <div class="col-2 icone-config">
-                        <i class="fas fa-cog"></i>
-                    </div>
+    <!-- icones e legenda -->
+    <div class="row p-3">
+        <div class="col-sm-12 legenda-perfil animated  bounceInLeft delay-1s slow">
+            <div class="row">
+                <div class="col-2 icone-voltar">
+                    <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="col-8 legenda text-center">
+                    <h3 class="h3">Perfil</h3>
+                </div>
+                <div class="col-2 icone-config">
+                    <i class="fas fa-cog"></i>
                 </div>
             </div>
         </div>
-         <!-- img -->
-        <div class="row">
-            <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s slow">
-                <div class="row">
-                    <div class="col-8 col-sm-8 offset-2 offset-sm-2">
-                        <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="image profile" class="img-fluid img-profile">
-                    </div>        
+    </div>
+    <!-- img -->
+    <div class="row">
+        <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s slow">
+            <div class="row">
+                <div class="col-8 col-sm-8 offset-2 offset-sm-2">
+                    <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
+                        alt="image profile" class="img-fluid img-profile">
                 </div>
             </div>
         </div>
-        <!-- Nome Usuario e localizacao -->
-        <div class="row">
-            <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s slow">
-                <div class="row">
-                    <div class="col-8 col-sm-8 offset-2 offset-sm-2  p-2">
-                        <h5 class="h5">ThinkStart</h5>
-                        <p class=""><i class="fas fa-map-marker-alt"></i>Localização</p>
-                    </div>        
+    </div>
+    <!-- Nome Usuario e localizacao -->
+    <div class="row">
+        <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s slow">
+            <div class="row">
+                <div class="col-8 col-sm-8 offset-2 offset-sm-2  p-2">
+                    <h5 class="h5">{{userName}}</h5>
+                    <p class=""><i class="fas fa-map-marker-alt"></i>Localização</p>
                 </div>
             </div>
         </div>
-        <!-- painel do perfil -->
-        <div class="row  mb-5">
-            <div class="col-sm-12  painel-perfil animated  bounceInRight delay-1s slow">
-                <!-- Criar Ação -->
-                <div class="row">
-                    <div class="col-12 col-sm-12  painel-legenda rounded">
-                        <p class="lead"><a href="user/criarevento">Criar Ação Social</a></p>
-                    </div>
+    </div>
+    <!-- painel do perfil -->
+    <div class="row  mb-5">
+        <div class="col-sm-12  painel-perfil animated  bounceInRight delay-1s slow">
+            <!-- Criar Ação -->
+            <div class="row">
+                <div class="col-12 col-sm-12  painel-legenda rounded">
+                    <p class="lead"><a href="user/criarevento">Criar Ação Social</a></p>
                 </div>
-                <!-- Editar Perfil -->
-                <div class="row">
-                    <div class="col-12 col-sm-12  painel-legenda rounded">
-                        <p class="lead"><a href="user/editarPerfil">Editar Perfil</a></p>
-                    </div>
+            </div>
+            <!-- Editar Perfil -->
+            <div class="row">
+                <div class="col-12 col-sm-12  painel-legenda rounded">
+                    <p class="lead"><a href="user/editarPerfil">Editar Perfil</a></p>
                 </div>
-                <!-- Editar Perfil -->
-                <div class="row">
-                    <div class="col-12 col-sm-12  painel-legenda rounded">
-                        <p class="lead" data-toggle="modal" data-target="#exampleModal">Mudar Senha</p>
-                    </div>
+            </div>
+            <!-- Editar Perfil -->
+            <div class="row">
+                <div class="col-12 col-sm-12  painel-legenda rounded">
+                    <p class="lead" data-toggle="modal" data-target="#exampleModal">Mudar Senha</p>
                 </div>
-                <!-- Editar Perfil -->
-                <div class="row">
-                    <div class="col-12 col-sm-12  painel-legenda rounded">
-                        <p class="lead">Notificações</p>
-                    </div>
+            </div>
+            <!-- Editar Perfil -->
+            <div class="row">
+                <div class="col-12 col-sm-12  painel-legenda rounded">
+                    <p class="lead">Notificações</p>
                 </div>
-                <!-- Editar Perfil -->
-                <div class="row">
-                    <div class="col-12 col-sm-12  painel-legenda logout rounded" ng-click="logout()">
-                        <p class="lead">Log Out</p>
-                    </div>
+            </div>
+            <!-- Editar Perfil -->
+            <div class="row">
+                <div class="col-12 col-sm-12  painel-legenda logout rounded" ng-click="logout()">
+                    <p class="lead">Log Out</p>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Mudar Senha</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mudar Senha</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <p class="lead">Senha Atual</p>
+                    <input type="text" name="" class="form-control">
+                    <p class="lead">Nova Senha</p>
+                    <input type="text" name="" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
         </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <p class="lead">Senha Atual</p>
-                <input type="text" name=""  class="form-control">
-                <p class="lead">Nova Senha</p>
-                <input type="text" name=""  class="form-control">
-            </div>        
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Salvar</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
