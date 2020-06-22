@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EventoController', function ($scope, $routeParams, $rootScope, $http, recursoLogin, recursoEvento, recursoEndereco) {
+angular.module('ecothink').controller('EventoController', function ($scope, $routeParams, $rootScope, $http, recursoLogin, recursoEvento, recursoEndereco, recursoUser) {
 
     recursoLogin.verify;
 
@@ -18,6 +18,10 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
             recursoEndereco.get({ parametro: $scope.eventoUnico.idEndereco }, (enderecos) => {
                 console.log(enderecos)
                 $scope.eventoUnico.endereco = enderecos.logradouro + "," + enderecos.bairro + "," + enderecos.numero;
+            })
+            recursoUser.get({ usuarioId: $scope.eventoUnico.idOrganizador }, (usuario) => {
+                console.log(usuario)
+                $scope.eventoUnico.usuario = usuario.nome;
             })
 
         })
