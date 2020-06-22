@@ -8,7 +8,8 @@
             </section>
             <section class="col-md-12 titulo">
                 <h2 class="display-5 mt-3">{{eventoUnico.nome}}</h2>
-                <h4 class="h4 mb-4"><a href="/user/usuario">{{eventoUnico.idOrganizador}}</a></h4>
+                <h4 class="h4 mb-4"><a
+                        href="/user/usuario/{{eventoUnico.idOrganizador}}">{{eventoUnico.idOrganizador}}</a></h4>
             </section>
             <section class="col-md-12 conteudo">
                 <div class="row">
@@ -26,7 +27,7 @@
                     </section>
                     <section class="col-10 text">
                         <h6 class="h6">Industry City</h6>
-                        <p class="lead">Ave, Westminster, CO 80020</p>
+                        <p class="lead">{{eventoUnico.endereco}}</p>
                     </section>
                 </div>
                 <div class="row">

@@ -54,4 +54,11 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 method: 'put'
             }
         });
-    }) 
+    })
+    .factory('recursoEndereco', function ($resource, $rootScope) {
+        return $resource($rootScope.api + '/endereco/:parametro', null, {
+            update: {
+                method: 'put'
+            }
+        });
+    })

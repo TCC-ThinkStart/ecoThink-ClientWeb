@@ -1,5 +1,8 @@
 angular.module('ecothink').controller('LoginController', function ($scope, $rootScope, $cookies, $http, $location, $location, recursoLogin) {
 
+    $rootScope.isLogin = true;
+    $rootScope.isUser = false;
+
     recursoLogin.verify;
 
     $scope.submitar = (usuario) => {

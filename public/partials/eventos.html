@@ -17,7 +17,8 @@
                     <div class="col-md-12 evento evento-inicial animated  bounceInLeft delay-1s slow"
                         ng-repeat="event in events">
                         <div class="text-group">
-                            <h3 class="h3"><a href="/user/usuario">{{event.idOrganizador}}</a></h3>
+                            <h3 class="h3"><a href="/user/usuario/{{event.idOrganizador}}">{{event.idOrganizador}}</a>
+                            </h3>
                             <h6 class="h6">{{event.nome}}</h6>
                             <p class="lead">{{event.idEndereco}}</p>
                             <p class="text-justify">{{event.descricao}}</p>

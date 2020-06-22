@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EventoController', function ($scope, $routeParams, $rootScope, $http, recursoLogin, recursoEvento) {
+angular.module('ecothink').controller('EventoController', function ($scope, $routeParams, $rootScope, $http, recursoLogin, recursoEvento, recursoEndereco) {
 
     recursoLogin.verify;
 
@@ -12,9 +12,16 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
     if ($routeParams.eventoId) {
         //apos isso armazenamos um resultado
         recursoEvento.get({ eventoId: $routeParams.eventoId }, (results) => {
-            console.log(results);
+
             $scope.eventoUnico = results;
+            //conversao para endereço
+            recursoEndereco.get({ parametro: $scope.eventoUnico.idEndereco }, (enderecos) => {
+                console.log(enderecos)
+                $scope.eventoUnico.endereco = enderecos.logradouro + "," + enderecos.bairro + "," + enderecos.numero;
+            })
+
         })
+
     }
 
 });
