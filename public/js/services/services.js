@@ -14,10 +14,12 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                     const infoUser = JSON.parse(atob(refaturandoToken[1]))
 
                     // Setting a localStorage
-                    localStorage.setItem('userName', infoUser.name)
-                    localStorage.setItem('email', infoUser.email)
+                    localStorage.setItem('userName', infoUser.nome)
+                    localStorage.setItem('auth', infoUser.nivel)
+                    localStorage.setItem('code', infoUser.codigo)
 
                 } else {
+                    alert('Você Precisa estar Logado!')
                     $location.path('/home/login')
                 }
             } else {

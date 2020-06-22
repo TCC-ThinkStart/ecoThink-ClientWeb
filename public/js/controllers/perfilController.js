@@ -1,4 +1,7 @@
-angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location) {
+angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location, recursoLogin) {
+
+    recursoLogin.verify;
+
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
     $rootScope.isDark = false;
