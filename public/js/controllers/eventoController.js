@@ -10,7 +10,6 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
 
 
     if ($routeParams.eventoId) {
-        console.log('entrou no route params')
         //apos isso armazenamos um resultado
         recursoEvento.get({ eventoId: $routeParams.eventoId }, (results) => {
             console.log(results);
