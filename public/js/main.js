@@ -42,9 +42,9 @@ angular.module('ecothink', ['ngRoute', 'meusServicos', 'ui.mask'])
             templateUrl: 'partials/eventos.html',
             controller: 'EventosController'
         });
-        $routeProvider.when('/user/evento', {
+        $routeProvider.when('/user/evento/:eventoId', {
             templateUrl: 'partials/evento.html',
-            controller: 'EventosController'
+            controller: 'EventoController'
         });
         $routeProvider.when('/user/criarevento', {
             templateUrl: 'partials/criarEvento.html',

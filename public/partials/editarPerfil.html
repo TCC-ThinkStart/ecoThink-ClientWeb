@@ -38,6 +38,14 @@
                         Valido!
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="lead"><i class="fas fa-envelope-open-text"></i> Email</label>
+                    <input type="email" ng-model="usuario.email" ng-class="{'is-valid':isValid}" class="form-control"
+                        placeholder="ex : email@gmail.com" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                    <div ng-if="isValid" class="valid-feedback">
+                        Valido!
+                    </div>
+                </div>
                 <div class="form-group form-row">
                     <div class="col-12 col-md-6">
                         <label class="lead"><i class="fas fa-images"></i> Foto</label>
@@ -58,10 +66,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="lead"><i class="fas fa-address-card"></i> CPF</label>
-                    <input type="text" ng-model="usuario.cpf" ui-mask="999.999.999-99" ng-class="{'is-valid':isValid}"
-                        ui-placeholder class="form-control form-control-md" placeholder="292.291.192-00"
-                        ui-mask-placeholder-char="_" required>
+                    <label class="lead"><i class="fas fa-address-card"></i> Data de Nascimento</label>
+                    <input type="text" ng-model="usuario.dataNascimento" ui-mask="99/99/9999"
+                        ng-class="{'is-valid':isValid}" ui-placeholder class="form-control form-control-md"
+                        placeholder="ex:30/05/2000" ui-mask-placeholder-char="/" required>
                     <div ng-if="isValid" class="valid-feedback">
                         Valido!
                     </div>

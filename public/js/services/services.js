@@ -41,3 +41,10 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
         }
 
     })
+    .factory('recursoEvento', function ($resource, $rootScope) {
+        return $resource($rootScope.api + '/evento/:eventoId', null, {
+            update: {
+                method: 'put'
+            }
+        });
+    })  
