@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('LoginController', function ($scope, $http, $location, $location, recursoLogin) {
+angular.module('ecothink').controller('LoginController', function ($scope, $rootScope, $http, $location, $location, recursoLogin) {
 
     recursoLogin.verify;
 
@@ -13,6 +13,11 @@ angular.module('ecothink').controller('LoginController', function ($scope, $http
     }
     $scope.submeter = (usuario) => {
         console.log(usuario)
-        $location.path('/user/perfil');
+        $http.post($rootScope.api + '/login', usuario)
+            .then(results => console.log(results.data))
+            .catch(error => console.error(error))
     }
+
+
+
 });
