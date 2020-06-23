@@ -34,10 +34,13 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 return refaturandoToken
             }
         }
-
+        function userCode() {
+            return localStorage.getItem('code')
+        }
         return {
             verify: verify(),
-            token: token()
+            token: token(),
+            userCode: userCode()
         }
 
     })

@@ -1,5 +1,5 @@
-angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http) {
-
+angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http, recursoLogin) {
+    recursoLogin.verify;
 
     $rootScope.isUser = true;
 
@@ -28,20 +28,20 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
     };
     $scope.submit = (event) => {
         //arrumar data
-        const datainit = event.dateInit;
+        const datainit = event.dataInicio;
         const diainit = datainit.substr(0, 2);
         const mesinit = datainit.substr(2, 2);
         const anoinit = datainit.substr(4, 4);
-        const dataFormatadainit = anoinit + "/" + mesinit + "/" + diainit;
-        event.dateInit = dataFormatadainit;
+        const dataFormatadainit = anoinit + "-" + mesinit + "-" + diainit;
+        event.dataInicio = dataFormatadainit;
         //
-        const dataEnd = event.dateEnd;
+        const dataEnd = event.dataFinal;
         const diaEnd = dataEnd.substr(0, 2);
         const mesEnd = dataEnd.substr(2, 2);
         const anoEnd = dataEnd.substr(4, 4);
-        const dataFormatadaEnd = anoEnd + "/" + mesEnd + "/" + diaEnd;
-        event.dateEnd = dataFormatadaEnd;
-
+        const dataFormatadaEnd = anoEnd + "-" + mesEnd + "-" + diaEnd;
+        event.dataFinal = dataFormatadaEnd;
+        event.idOrganizador = parseInt(recursoLogin.userCode);
         console.log(event)
     }
     $scope.imgRemove = () => {
