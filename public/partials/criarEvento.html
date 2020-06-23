@@ -19,7 +19,7 @@
                                 <div class="col-sm-12 col-12 col-md-6 mb-4">
                                     <label class="custom-file-label-dark"> <i class="far fa-image"></i> Escolha uma
                                         Foto</label>
-                                    <input type="file" ng-model="event.img" name="eventImg"
+                                    <input type="file" accept='image/*' ng-model="event.img" name="eventImg"
                                         onchange="angular.element(this).scope().SelectFile(event)"
                                         class="custom-file-input">
                                 </div>
@@ -66,10 +66,12 @@
                 <label for="inputPassword" class="col-md-2 col-12 col-form-label"><i class="fas fa-calendar-check"></i>
                     Data Inicio</label>
                 <div class="col-md-5 col-12">
-                    <input type="date" ng-model="event.dateInit" class="form-control-plaintext-dark" id="inputPassword">
+                    <input type="text" ng-model="event.dateInit" ui-mask="99/99/9999" ui-mask-placeholder
+                        class="form-control-plaintext-dark" class="form-control-plaintext-dark" id="inputPassword">
                 </div>
                 <div class="col-md-5 col-12">
-                    <input type="date" ng-model="event.dateEnd" class="form-control-plaintext-dark" id="inputPassword">
+                    <input type="text" ng-model="event.dateEnd" ui-mask="99/99/9999" ui-mask-placeholder
+                        class="form-control-plaintext-dark" id="inputPassword">
                 </div>
             </div>
 
@@ -89,7 +91,7 @@
                     <input type="text" ng-model="event.adress" class="form-control-plaintext-dark" id="inputPassword">
                 </div>
                 <div class="col-md-2 col-4">
-                    <input type="number" ng-model="event.adress.n" class="form-control-plaintext-dark"
+                    <input type="number" ng-model="event.n" class="form-control-plaintext-dark"
                         placeholder="Numero do Endereço">
                 </div>
                 <label for="inputPassword" class="col-md-2 col-12 col-form-label">

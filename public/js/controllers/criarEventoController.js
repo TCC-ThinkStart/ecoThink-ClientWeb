@@ -1,5 +1,5 @@
 angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http) {
-    console.log('entrou no controller de eventos')
+
 
     $rootScope.isUser = true;
 
@@ -24,18 +24,25 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
         };
 
         reader.readAsDataURL(e.target.files[0]);
-        console.log('entrou')
+
     };
     $scope.submit = (event) => {
-        event.img = $scope.PreviewImage;
+        //arrumar data
+        const datainit = event.dateInit;
+        const diainit = datainit.substr(0, 2);
+        const mesinit = datainit.substr(2, 2);
+        const anoinit = datainit.substr(4, 4);
+        const dataFormatadainit = anoinit + "/" + mesinit + "/" + diainit;
+        event.dateInit = dataFormatadainit;
+        //
+        const dataEnd = event.dateEnd;
+        const diaEnd = dataEnd.substr(0, 2);
+        const mesEnd = dataEnd.substr(2, 2);
+        const anoEnd = dataEnd.substr(4, 4);
+        const dataFormatadaEnd = anoEnd + "/" + mesEnd + "/" + diaEnd;
+        event.dateEnd = dataFormatadaEnd;
+
         console.log(event)
-
-        $http.post('http://localhost:4200/upload', event)
-            .then(results => {
-                console.log(results)
-            })
-            .catch(error => console.error)
-
     }
     $scope.imgRemove = () => {
         $scope.PreviewImage = null;
@@ -43,7 +50,7 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
 
 
     //chamando todas as cidades de SP
-    $http.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/SP/municipios')
+    $http.get($rootScope.api + '/cidade')
         .then(results => { $scope.municipios = results.data })
         .catch(error => console.error(error))
 });

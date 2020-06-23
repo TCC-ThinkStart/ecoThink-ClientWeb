@@ -68,4 +68,4 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 method: 'put'
             }
         });
-    }))
+    })
