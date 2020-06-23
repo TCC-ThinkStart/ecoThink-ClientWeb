@@ -72,3 +72,39 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+    .factory('cadastroDeEvento', function (recursoEvento, $q) {
+        // criar objeto
+        let servico = {};
+        // criacao de cadastro
+        servico.cadastrar = function (evento) {
+            //criacao de promisses
+            return $q(function (resolve, reject) {
+                //caso existir esse id ele ira atualizar as informações 
+                if (evento.codigo) {
+                    recursoEvento.update({ id: evento.codigo }, evento, function () {
+                        resolve({
+                            mensagem: 'evento: ' + evento.nome + ' atualizado com sucesso!',
+                            inclusao: false
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel alterar o Evento ' + evento.nome
+                        });
+                    });
+                } else {
+                    recursoEvento.save(evento, function () {
+                        resolve({
+                            mensagem: 'evento ' + evento.titulo + ' Incluido com sucesso ',
+                            inclusao: true
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel cadastrar o evento ' + evento.titulo
+                        });
+                    })
+                }
+            })
+        }
+    })

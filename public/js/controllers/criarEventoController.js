@@ -42,6 +42,8 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
         const dataFormatadaEnd = anoEnd + "-" + mesEnd + "-" + diaEnd;
         event.dataFinal = dataFormatadaEnd;
         event.idOrganizador = parseInt(recursoLogin.userCode);
+        event.idCidade = event['cidade'].codigo
+        event['cidade'] = null
         console.log(event)
     }
     $scope.imgRemove = () => {
