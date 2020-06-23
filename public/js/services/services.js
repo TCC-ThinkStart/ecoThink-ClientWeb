@@ -62,3 +62,10 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+    .factory('recursoCity', function ($resource, $rootScope) {
+        return $resource($rootScope.api + '/cidade/:parametro', null, {
+            update: {
+                method: 'put'
+            }
+        });
+    }))
