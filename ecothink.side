@@ -649,7 +649,7 @@
     }]
   }, {
     "id": "c33d8fd8-f740-4642-9efa-bc05af0c84a6",
-    "name": "logar usuario",
+    "name": "logar usuario(completo)",
     "commands": [{
       "id": "ef1daec4-32d7-4580-a526-484b7339eeff",
       "comment": "",
@@ -687,7 +687,7 @@
         ["xpath=//input[@name='email']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "joao@joao.com.br"
+      "value": "ecothinkthinkstart@gmail.com"
     }, {
       "id": "fa27d1d0-b89c-4144-9b5e-e9ac4b420731",
       "comment": "",
@@ -711,7 +711,7 @@
         ["xpath=//input[@name='password']", "xpath:attributes"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "1234"
+      "value": "tccdsi3ecothink"
     }, {
       "id": "e0dfee11-7af7-4dc8-8ead-b5ecf9a274a9",
       "comment": "",
@@ -726,6 +726,186 @@
       "value": ""
     }, {
       "id": "e9fc03f8-cf14-4347-b9b5-e05f5dc9bf3b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6c23c660-80d2-4033-97ee-51f2244fe845",
+    "name": "logar usuario(senha invalida) ",
+    "commands": [{
+      "id": "b77f1bd8-247e-4eb9-92c0-16217b41e6ff",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/home/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb9bea97-616b-40f8-9933-cd47b9b4060c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82e04389-a293-4e35-b306-ac7ef49f5331",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f9ecb96-d2bc-43a8-9938-e1f3c70fedd7",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ecothinkthinkstart@gmail.com"
+    }, {
+      "id": "2395a775-bf60-4ce6-a1c6-643bb39e16d2",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e7e61de-e4e0-4d41-bebc-39b978a8d31e",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "tccdsi3ecothink343"
+    }, {
+      "id": "388d088c-e68d-4aac-b4fc-4663a1d4067b",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.ng-untouched", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b1d0686-ee20-4c7c-bf70-354759ffbfac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Logar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "98663163-b4bb-4f7e-8c57-02e159f91ccf",
+    "name": "logar usuario(email invalido) ",
+    "commands": [{
+      "id": "51818394-5256-4f6c-964d-6f583e6f7902",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/home/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "252ffbaa-64c5-40ec-9cfe-db33aa3f6d56",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb942d69-923c-4081-9687-bfe371abae10",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "83d7bde3-37c5-4d97-980f-404a272e75b7",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ecothinkthinkstart@gmail.com.br"
+    }, {
+      "id": "ac2139b4-c8ad-42e0-922a-570bd9ca564a",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "28dce130-f450-4333-9b69-cd771c195701",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "tccdsi3ecothink"
+    }, {
+      "id": "6e4c1650-3cc4-4490-8e35-7dfbf088862f",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.ng-untouched", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ec9fd9b-83a1-4e72-984d-b64913389fb8",
       "comment": "",
       "command": "click",
       "target": "css=.btn",

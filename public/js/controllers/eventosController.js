@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EventosController', function ($scope, $rootScope, $http, recursoLogin, recursoUser) {
+angular.module('ecothink').controller('EventosController', function ($scope, $rootScope, $http, recursoLogin, recursoUser, recursoEndereco) {
 
     recursoLogin.verify;
 
@@ -12,13 +12,12 @@ angular.module('ecothink').controller('EventosController', function ($scope, $ro
     $http.get($rootScope.api + '/evento')
         .then(results => {
             $scope.events = results.data
-            console.log($scope.events)
-            console.log(results.data.length)
             for (let c = 0; c <= results.data.length; c++) {
                 recursoUser.get({ usuarioId: $scope.events[c].idOrganizador }, (usuario) => {
-                    console.log(usuario.nome)
-                    console.log($scope.events[c].idOrganizador)
                     $scope.events[c].usuario = usuario.nome;
+                })
+                recursoEndereco.get({ parametro: $scope.events[c].idEndereco }, (endereco) => {
+                    $scope.events[c].endereco = endereco.logradouro + ',' + endereco.bairro + ',' + endereco.numero;
                 })
                 console.log($scope.events)
             }
