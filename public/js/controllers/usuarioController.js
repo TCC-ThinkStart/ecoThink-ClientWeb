@@ -1,4 +1,5 @@
-angular.module('ecothink').controller('UsuarioController', function ($scope, $rootScope, $routeParams, recursoUser) {
+angular.module('ecothink').controller('UsuarioController', function ($scope, $rootScope, $routeParams, recursoUser, recursoLogin) {
+    recursoLogin.verify;
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
     $rootScope.isDark = false;

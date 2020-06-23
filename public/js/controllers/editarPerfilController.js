@@ -1,4 +1,5 @@
-angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http) {
+angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin) {
+    recursoLogin.verify;
     $scope.submitar = (usuario) => {
         if (usuario.nome && usuario.telefone && usuario.cpf) {
             $scope.isValidTell = true;
