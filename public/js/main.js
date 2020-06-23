@@ -56,7 +56,7 @@ angular.module('ecothink', ['ngRoute', 'meusServicos', 'ui.mask'])
         });
         $routeProvider.when('/user/descobrir', {
             templateUrl: 'partials/descobrir.html',
-            controller: 'UsuarioController'
+            controller: 'DescobrirController'
         });
         $routeProvider.when('/user/pesquisar', {
             templateUrl: 'partials/pesquisar.html',

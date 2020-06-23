@@ -19,7 +19,6 @@ angular.module('ecothink').controller('EventosController', function ($scope, $ro
                 recursoEndereco.get({ parametro: $scope.events[c].idEndereco }, (endereco) => {
                     $scope.events[c].endereco = endereco.logradouro + ' - ' + endereco.numero + ',' + endereco.bairro;
                 })
-                console.log($scope.events)
             }
 
         })
