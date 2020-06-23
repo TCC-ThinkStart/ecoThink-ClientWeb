@@ -44,13 +44,6 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
         }
 
     })
-    .factory('recursoEvento', function ($resource, $rootScope) {
-        return $resource($rootScope.api + '/evento/:eventoId', null, {
-            update: {
-                method: 'put'
-            }
-        });
-    })
     .factory('recursoUser', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/usuario/:usuarioId', null, {
             update: {
@@ -72,11 +65,19 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
-    .factory('cadastroDeEvento', function (recursoEvento, $q) {
+
+    .factory('recursoEvento', function ($resource, $rootScope) {
+        return $resource($rootScope.api + '/evento/:eventoId', null, {
+            update: {
+                method: 'PUT'
+            }
+        });
+    })
+    .factory('cadastroDeEventos', function (recursoEvento, $q) {
         // criar objeto
         let servico = {};
-        // criacao de cadastro
-        servico.cadastrar = function (evento) {
+        // // criacao de cadastro
+        servico.cadastrar = (evento) => {
             //criacao de promisses
             return $q(function (resolve, reject) {
                 //caso existir esse id ele ira atualizar as informações 
@@ -92,19 +93,22 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                             mensagem: 'Não foi possivel alterar o Evento ' + evento.nome
                         });
                     });
-                } else {
+                }
+                //se nao existir ele ira criar uma nova informação de livro no banco 
+                else {
                     recursoEvento.save(evento, function () {
                         resolve({
-                            mensagem: 'evento ' + evento.titulo + ' Incluido com sucesso ',
+                            mensagem: 'evento ' + evento.nome + ' Incluido com sucesso ',
                             inclusao: true
                         });
                     }, function (error) {
                         console.log(error);
                         reject({
-                            mensagem: 'Não foi possivel cadastrar o evento ' + evento.titulo
+                            mensagem: 'Não foi possivel cadastrar o evento ' + evento.nome
                         });
                     })
                 }
             })
         }
+        return servico;
     })

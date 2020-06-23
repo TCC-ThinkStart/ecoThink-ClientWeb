@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http, recursoLogin) {
+angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http, recursoLogin, cadastroDeEventos) {
     recursoLogin.verify;
 
     $rootScope.isUser = true;
@@ -44,6 +44,25 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
         event.idOrganizador = parseInt(recursoLogin.userCode);
         event.idCidade = event['cidade'].codigo
         event['cidade'] = null
+
+
+        cadastroDeEventos.cadastrar(event)
+            .then(results => {
+                $scope.mensagem = results.mensagem;
+                const mensagem = results.mensagem;
+                Swal.fire({
+                    title: 'Evento',
+                    text: mensagem,
+                    icon: 'success',
+                })
+                console.log(results)
+            })
+            .catch(error => {
+                $scope.mensagem = error.mensagem;
+                console.log(error)
+            })
+
+
         console.log(event)
     }
     $scope.imgRemove = () => {
