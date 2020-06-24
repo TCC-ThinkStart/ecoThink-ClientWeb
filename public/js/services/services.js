@@ -1,5 +1,5 @@
 angular.module('meusServicos', ['ngResource', 'ngCookies'])
-    .factory('recursoLogin', function ($cookies, $location) {
+    .factory('recursoLogin', function ($cookies, $location, $rootScope, $http) {
         const routes = {
             register: '/home/register',
             login: '/home/login'
@@ -34,6 +34,18 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 return refaturandoToken
             }
         }
+        function setImageProfile() {
+            $http.get($rootScope.api + '/foto/' + localStorage.getItem('code'))
+                .then(foto => {
+                    const converter = btoa(foto.url)
+                    $cookies.put('x-imageProfile', converter)
+                })
+            return $cookies.put('x-imageProfile', converter)
+
+        }
+        function getImageProfile() {
+            return $cookies.get('x-imageProfile');
+        }
         function userCode() {
             return localStorage.getItem('code')
         }
@@ -44,7 +56,9 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             verify: verify(),
             token: token(),
             userCode: userCode(),
-            getName: getName()
+            getName: getName(),
+            getProfile: getImageProfile(),
+            setProfile: setImageProfile()
         }
 
     })
