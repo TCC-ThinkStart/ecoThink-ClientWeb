@@ -3,6 +3,8 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
 
+    $scope.nome = recursoLogin.getName;
+    console.log($scope.nome)
 
     $scope.SelectFile = (e) => {
         const reader = new FileReader();
