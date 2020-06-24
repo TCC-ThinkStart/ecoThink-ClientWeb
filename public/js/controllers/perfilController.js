@@ -1,6 +1,7 @@
 angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location, recursoLogin) {
 
     recursoLogin.verify;
+    recursoLogin.setProfile;
 
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
@@ -13,4 +14,6 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
     }
 
     $scope.userName = localStorage.getItem('userName')
+
+
 });

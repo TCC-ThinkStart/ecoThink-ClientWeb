@@ -22,7 +22,7 @@ angular.module('ecothink').controller('LoginController', function ($scope, $root
                 //return -> auth,token
                 $scope.user = results.data
 
-                recursoLogin.token
+
                 $cookies.put('x-acess-token', $scope.user.token)
                 recursoLogin.setProfile
                 $location.path('user/perfil')

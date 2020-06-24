@@ -35,16 +35,17 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         }
         function setImageProfile() {
-            $http.get($rootScope.api + '/foto/' + localStorage.getItem('code'))
+            $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/foto/' + localStorage.getItem('code'), {
+                headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
+            })
                 .then(foto => {
-                    const converter = btoa(foto.url)
+                    const converter = btoa(foto.data.url)
                     $cookies.put('x-imageProfile', converter)
                 })
-            return $cookies.put('x-imageProfile', converter)
 
         }
         function getImageProfile() {
-            return $cookies.get('x-imageProfile');
+            return atob($cookies.get('x-imageProfile'));
         }
         function userCode() {
             return localStorage.getItem('code')
