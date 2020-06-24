@@ -13,6 +13,7 @@
     color: var(--white);
 }
 .form-control-plaintext-dark{
+    border-radius: 5px;
     display: block;
     width: 100%;
     margin-bottom: 0;
