@@ -71,9 +71,9 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             return $q(function (resolve, reject) {
                 //caso existir esse id ele ira atualizar as informações 
                 if (foto.codigo) {
-                    recursoFotoUser.update({ id: foto.codigo }, foto, function () {
+                    recursoFotoUser.update({ usuarioId: foto.codigo }, foto, function () {
                         resolve({
-                            mensagem: 'foto: ' + foto.codigo + ' atualizada com sucesso!',
+                            mensagem: 'foto: atualizada com sucesso!',
                             inclusao: false
                         });
                     }, function (error) {
