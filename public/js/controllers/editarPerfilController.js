@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin, $rootScope) {
+angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin, recursoFotoUser, $rootScope) {
     recursoLogin.verify;
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
@@ -32,7 +32,6 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
 
 
         if ($scope.adicionaImagem) {
-            usuario.base64 = $scope.PreviewImage
 
         }
         console.log(usuario)

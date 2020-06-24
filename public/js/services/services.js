@@ -62,6 +62,45 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+    .factory('cadastroDeFotoPerfil', (recursoFotoUser, $q) => {
+        // criar objeto
+        let servico = {};
+        // // criacao de cadastro
+        servico.cadastrar = (foto) => {
+            //criacao de promisses
+            return $q(function (resolve, reject) {
+                //caso existir esse id ele ira atualizar as informações 
+                if (foto.codigo) {
+                    recursoFotoUser.update({ id: foto.codigo }, foto, function () {
+                        resolve({
+                            mensagem: 'foto: ' + foto.codigo + ' atualizada com sucesso!',
+                            inclusao: false
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel alterar o foto ' + foto.codigo
+                        });
+                    });
+                }
+                //se nao existir ele ira criar uma nova informação de livro no banco 
+                else {
+                    recursoFotoUser.save(foto, function () {
+                        resolve({
+                            mensagem: 'foto Incluida com sucesso ',
+                            inclusao: true
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel cadastrar a foto ' + foto.codigo
+                        });
+                    })
+                }
+            })
+        }
+        return servico;
+    })
     .factory('recursoEndereco', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/endereco/:parametro', null, {
             update: {
