@@ -19,7 +19,8 @@
     <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s fast">
         <div class="row">
             <div class="col-8 col-sm-8 offset-2 offset-sm-2">
-                <img src="{{PreviewImage}}" alt="image profile" class="img-fluid img-edit">
+                <img ng-init="PreviewImage = 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'"
+                    src="{{PreviewImage}}" alt="image profile" class="img-fluid img-edit">
             </div>
         </div>
     </div>
@@ -50,9 +51,9 @@
                     <div class="col-12 col-md-6">
                         <label class="lead"><i class="fas fa-images"></i> Foto</label>
                         <div class="custom-file">
-                            <input type="file" onchange="angular.element(this).scope().SelectFile(event)"
-                                class="custom-file-input">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            <input type="file" accept='image/*' ng-model="usuario.imagem" name="eventImg"
+                                onchange="angular.element(this).scope().SelectFile(event)" class="custom-file-input">
+                            <label class="custom-file-label">Choose file</label>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
@@ -76,9 +77,10 @@
                 </div>
                 <div class="form-group mb-5">
                     <a href="javascript:history.back()" class="btn btn-outline-danger mb-5">Cancelar</a>
-                    <button class="btn btn-dark  mb-5" type="submit" ng-click="enviar(usuario)"
-                        ng-disabled="submitar(usuario)">Enviar
-                        Edição</button>
+                    <button class="btn btn-dark  mb-5" type="submit" ng-click="enviar(usuario)">
+                        Enviar
+                        Edição
+                    </button>
                 </div>
             </div>
         </div>

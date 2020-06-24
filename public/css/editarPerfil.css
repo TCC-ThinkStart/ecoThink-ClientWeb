@@ -1,6 +1,6 @@
 .img-edit{
-    width: 70%;
+    width: auto;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 5%;
     object-fit: cover;
 }

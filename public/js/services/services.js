@@ -37,10 +37,14 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
         function userCode() {
             return localStorage.getItem('code')
         }
+        function getName() {
+            return localStorage.getItem('userName')
+        }
         return {
             verify: verify(),
             token: token(),
-            userCode: userCode()
+            userCode: userCode(),
+            getName: getName()
         }
 
     })
