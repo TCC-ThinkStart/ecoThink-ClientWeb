@@ -62,6 +62,10 @@ angular.module('ecothink', ['ngRoute', 'meusServicos', 'ui.mask'])
             templateUrl: 'partials/pesquisar.html',
             controller: 'PesquisarController'
         });
+        $routeProvider.when('/user/editarEndereco', {
+            templateUrl: 'partials/editarEndereco.html',
+            controller: 'EditarEnderecoController'
+        });
         //obrigando o usuario a ser redirecionado para '/'
         $routeProvider.otherwise({ redirectTo: '/home' });
     });
