@@ -2,7 +2,8 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
     recursoLogin.verify;
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
-
+    recursoLogin.setProfile;
+    $scope.PreviewImage = $rootScope.api + '/' + atob(recursoLogin.getProfile);
     $scope.nome = recursoLogin.getName;
 
 

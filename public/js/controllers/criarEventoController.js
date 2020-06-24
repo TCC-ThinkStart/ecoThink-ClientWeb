@@ -1,6 +1,7 @@
 angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http, recursoLogin, cadastroDeEventos) {
     recursoLogin.verify;
-
+    recursoLogin.setProfile;
+    $scope.PreviewImage = $rootScope.api + '/' + atob(recursoLogin.getProfile);
     $rootScope.isUser = true;
 
     $rootScope.isLogin = false;
