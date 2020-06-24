@@ -2,7 +2,8 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
 
     recursoLogin.verify;
     recursoLogin.setProfile;
-
+    $scope.imageProfile = $rootScope.api + '/' + atob(recursoLogin.getProfile);
+    //https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
     $rootScope.isDark = false;

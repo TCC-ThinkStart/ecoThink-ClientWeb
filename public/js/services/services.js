@@ -17,6 +17,12 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                     localStorage.setItem('userName', infoUser.nome)
                     localStorage.setItem('auth', infoUser.nivel)
                     localStorage.setItem('code', infoUser.codigo)
+                    $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/usuario/' + localStorage.getItem('code'), {
+                        headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
+                    })
+                        .then(usuario => {
+                            localStorage.setItem('codeProfile', usuario.data.idFotoPerfil)
+                        })
 
                 } else {
                     alert('Você Precisa estar Logado!')
@@ -35,7 +41,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         }
         function setImageProfile() {
-            $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/foto/' + localStorage.getItem('code'), {
+            $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/foto/' + localStorage.getItem('codeProfile'), {
                 headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
             })
                 .then(foto => {
@@ -45,7 +51,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
 
         }
         function getImageProfile() {
-            return atob($cookies.get('x-imageProfile'));
+            return $cookies.get('x-imageProfile');
         }
         function userCode() {
             return localStorage.getItem('code')
