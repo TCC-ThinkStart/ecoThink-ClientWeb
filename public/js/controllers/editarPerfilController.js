@@ -39,6 +39,7 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
                 .then(results => {
                     $scope.mensagem = results.mensagem;
                     const mensagem = results.mensagem;
+                    $scope.$broadcast('fotoPerfilCadastrada');
                     Swal.fire({
                         title: 'Foto',
                         text: mensagem,

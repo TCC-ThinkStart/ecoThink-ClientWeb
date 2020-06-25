@@ -84,9 +84,11 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
-    .factory('cadastroDeFotoPerfil', (recursoFotoUser, $q) => {
+    .factory('cadastroDeFotoPerfil', (recursoFotoUser, $q, $rootScope) => {
         // criar objeto
         let servico = {};
+
+        let evento = 'fotoPerfilCadastrada';
         // // criacao de cadastro
         servico.cadastrar = (foto) => {
             //criacao de promisses
@@ -94,6 +96,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 //caso existir esse id ele ira atualizar as informações 
                 if (foto.codigo) {
                     recursoFotoUser.update({ usuarioId: foto.codigo }, foto, function () {
+                        $rootScope.$broadcast(evento);
                         resolve({
                             mensagem: 'foto: atualizada com sucesso!',
                             inclusao: false
