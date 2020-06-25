@@ -59,6 +59,13 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+    .factory('recursoFotoEvento', function ($resource, $rootScope) {
+        return $resource($rootScope.api + '/foto/evento/:eventoId', null, {
+            update: {
+                method: 'put'
+            }, isArray: false
+        });
+    })
     .factory('recursoFotoUser', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/foto/usuario/:usuarioId', null, {
             update: {

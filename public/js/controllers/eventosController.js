@@ -10,7 +10,6 @@ angular.module('ecothink').controller('EventosController', function ($scope, $ro
 
     //capturando evento
     recursoEvento.query((results) => {
-        console.log(results)
         $scope.events = results
         for (let c = 0; c <= results.length; c++) {
             recursoUser.get({ usuarioId: $scope.events[c].idOrganizador }, (usuario) => {
