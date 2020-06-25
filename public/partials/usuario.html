@@ -20,8 +20,7 @@
         <div class="col-12 col-sm-12 text-center">
             <div class="row">
                 <div class="col-8 col-sm-8 offset-2 offset-sm-2">
-                    <img src="https://icons-for-free.com/iconfiles/png/512/headset+male+man+support+user+young+icon-1320196267025138334.png"
-                        alt="image profile" class="img-fluid img-profile">
+                    <img src="{{profileImage}}" alt="image profile" class="img-fluid img-profile">
                 </div>
             </div>
         </div>
@@ -46,18 +45,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-10 offset-1 col-md-3 acoes-recentes"
+                <div class="col-10 offset-1 col-md-3 acoes-recentes" ng-repeat="titulo in titulos"
                     style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url('https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_for_Brasil.max-1000x1000.jpg');">
-                    <h6>The Keyword Google for Brazil</h6>
+                    <h6>{{titulo}}</h6>
                 </div>
-                <div class="col-10 offset-1 col-md-3 acoes-recentes"
+                <!-- <div class="col-10 offset-1 col-md-3 acoes-recentes"
                     style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url('https://cloud.estacaonerd.com/wp-content/uploads/2019/08/02135547/cropped-img_banner_evento-1.jpg');">
                     <h6>Corrida Cartoon from brazil</h6>
                 </div>
                 <div class="col-10 offset-1 col-md-3 acoes-recentes"
                     style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url('https://techcrunch.com/wp-content/uploads/2019/04/IMG_20190409_162653-1.jpg?w=730&crop=1');">
                     <h6>Google online tech talk session</h6>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
