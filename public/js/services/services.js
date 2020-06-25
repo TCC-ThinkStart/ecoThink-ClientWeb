@@ -28,18 +28,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 return refaturandoToken
             }
         }
-        // function setImageProfile() {
-        //     $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/foto/' + localStorage.getItem('codeProfile'), {
-        //         headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
-        //     })
-        //         .then(foto => {
-        //             console.log(foto.data.url)
-        //             const converter = foto.data.url.toString()
-        //             console.log(converter)
-        //             $cookies.put('x-imageProfile', converter)
-        //         })
 
-        // }
         function getImageProfile() {
             if ($cookies.get('x-access-user')) {
                 const refaturandoToken = $cookies.get('x-access-user').split('.')

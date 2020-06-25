@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EventosController', function ($scope, $rootScope, $http, recursoLogin, recursoUser, recursoEndereco) {
+angular.module('ecothink').controller('EventosController', function ($scope, $rootScope, $http, recursoLogin, recursoUser, recursoEndereco, recursoEvento) {
 
     recursoLogin.verify;
 
@@ -9,20 +9,22 @@ angular.module('ecothink').controller('EventosController', function ($scope, $ro
     $rootScope.isDark = false;
 
     //capturando evento
-    $http.get($rootScope.api + '/evento')
-        .then(results => {
-            $scope.events = results.data
-            for (let c = 0; c <= results.data.length; c++) {
-                recursoUser.get({ usuarioId: $scope.events[c].idOrganizador }, (usuario) => {
-                    $scope.events[c].usuario = usuario.nome;
-                })
-                recursoEndereco.get({ parametro: $scope.events[c].idEndereco }, (endereco) => {
-                    $scope.events[c].endereco = endereco.logradouro + ' - ' + endereco.numero + ',' + endereco.bairro;
-                })
-            }
+    recursoEvento.query((results) => {
+        console.log(results)
+        $scope.events = results
+        for (let c = 0; c <= results.length; c++) {
+            recursoUser.get({ usuarioId: $scope.events[c].idOrganizador }, (usuario) => {
+                $scope.events[c].usuario = usuario.nome;
+            })
+            recursoEndereco.get({ parametro: $scope.events[c].idEndereco }, (endereco) => {
+                $scope.events[c].endereco = endereco.logradouro + ' - ' + endereco.numero + ',' + endereco.bairro;
+            })
+        }
+    }, (error) => {
+        console.error(error)
+    })
 
-        })
-        .catch(error => console.warn(error))
+
 
 
 
