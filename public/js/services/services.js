@@ -111,6 +111,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 //se nao existir ele ira criar uma nova informação de livro no banco 
                 else {
                     recursoFotoUser.save(foto, function () {
+                        $rootScope.$broadcast(evento);
                         resolve({
                             mensagem: 'foto Incluida com sucesso ',
                             inclusao: true
