@@ -2,35 +2,23 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
     .factory('recursoLogin', function ($cookies, $location, $rootScope, $http) {
         const routes = {
             register: '/home/register',
-            login: '/home/login'
+            login: '/home/login',
+            welcome: '/home'
         }
         function verify() {
-            if ($location.path() != routes.register && $location.path() != routes.login) {
+            if ($location.path() != routes.register && $location.path() != routes.login && $location.path() != routes.welcome) {
                 // verificar se o cookie foi inserido , caso nao , redirecionar para pagina de login
 
                 if ($cookies.get('x-acess-token')) {
-                    const refaturandoToken = $cookies.get('x-acess-token').split('.')
-                    //capturando a parte de informação do usuario 
-                    const infoUser = JSON.parse(atob(refaturandoToken[1]))
 
-                    // Setting a localStorage
-                    localStorage.setItem('userName', infoUser.nome)
-                    localStorage.setItem('auth', infoUser.nivel)
-                    localStorage.setItem('code', infoUser.codigo)
-                    $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/usuario/' + localStorage.getItem('code'), {
-                        headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
-                    })
-                        .then(usuario => {
-                            localStorage.setItem('codeProfile', usuario.data.idFotoPerfil)
-                        })
 
                 } else {
-                    alert('Você Precisa estar Logado!')
-                    $location.path('/home/login')
+                    $location.path('home/login')
                 }
             } else {
                 console.log('essa rota nao vai aplicar o cookie')
             }
+
         }
         function token() {
             if ($cookies.get('x-acess-token')) {
@@ -40,18 +28,25 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                 return refaturandoToken
             }
         }
-        function setImageProfile() {
-            $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/foto/' + localStorage.getItem('codeProfile'), {
-                headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
-            })
-                .then(foto => {
-                    const converter = btoa(foto.data.url)
-                    $cookies.put('x-imageProfile', converter)
-                })
+        // function setImageProfile() {
+        //     $http.get('http://ec2-34-207-155-158.compute-1.amazonaws.com/foto/' + localStorage.getItem('codeProfile'), {
+        //         headers: { 'Authorization': 'Bearer ' + $cookies.get('x-acess-token') }
+        //     })
+        //         .then(foto => {
+        //             console.log(foto.data.url)
+        //             const converter = foto.data.url.toString()
+        //             console.log(converter)
+        //             $cookies.put('x-imageProfile', converter)
+        //         })
 
-        }
+        // }
         function getImageProfile() {
-            return $cookies.get('x-imageProfile');
+            if ($cookies.get('x-access-user')) {
+                const refaturandoToken = $cookies.get('x-access-user').split('.')
+                const infoUser = window.atob(refaturandoToken[0])
+                return infoUser
+            }
+
         }
         function userCode() {
             return localStorage.getItem('code')
@@ -64,8 +59,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             token: token(),
             userCode: userCode(),
             getName: getName(),
-            getProfile: getImageProfile(),
-            setProfile: setImageProfile()
+            getProfile: getImageProfile()
         }
 
     })
@@ -78,6 +72,13 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
     })
     .factory('recursoFotoUser', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/foto/usuario/:usuarioId', null, {
+            update: {
+                method: 'put'
+            }
+        });
+    })
+    .factory('recursoFoto', ($resource, $rootScope) => {
+        return $resource($rootScope.api + '/foto/:usuarioId', null, {
             update: {
                 method: 'put'
             }
