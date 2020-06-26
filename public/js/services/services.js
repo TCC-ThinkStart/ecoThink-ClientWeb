@@ -59,6 +59,49 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+    .factory('cadastroDeUsuario', (recursoUser, $q, $rootScope) => {
+        // criar objeto
+        let servico = {};
+
+        let evento = 'UsuarioCadastrado';
+        // // criacao de cadastro
+        servico.cadastrar = (usuario) => {
+            //criacao de promisses
+            return $q(function (resolve, reject) {
+                //caso existir esse id ele ira atualizar as informações 
+                if (usuario.codigo) {
+                    recursoUser.update({ usuarioId: usuario.codigo }, usuario, function () {
+                        $rootScope.$broadcast(evento);
+                        resolve({
+                            mensagem: 'Usuario: atualizado com sucesso!',
+                            inclusao: false
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel alterar o usuario ' + usuario.codigo
+                        });
+                    });
+                }
+                //se nao existir ele ira criar uma nova informação de livro no banco 
+                else {
+                    recursoUser.save(usuario, function () {
+                        $rootScope.$broadcast(evento);
+                        resolve({
+                            mensagem: 'Dados enviados com sucesso,Verifique seu email para ativar o seu cadastro ! ',
+                            inclusao: true
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel cadastrar o Usuario ' + usuario.codigo
+                        });
+                    })
+                }
+            })
+        }
+        return servico;
+    })
     .factory('recursoFotoEvento', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/foto/evento/:eventoId', null, {
             update: {
