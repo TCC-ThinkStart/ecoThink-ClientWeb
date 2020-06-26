@@ -20,33 +20,33 @@
             <div class="row">
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">CEP</label>
-                    <input type="text" ng-model="usuario.cep" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                    <input type="text" ng-model="usuario.cep" class="form-control" ui-mask="99999-999"
+                        ui-mask-placeholder aria-describedby="emailHelp">
                     <small id="emailHelp" class="form-text text-muted">Insira o CEP do lugar onde Mora.</small>
                 </div>
                 <div class="form-group col-6">
                     <label for="exampleInputPassword1">Nº</label>
-                    <input type="password" ng-model="usuario.numero" class="form-control" id="exampleInputPassword1">
+                    <input type="password" ng-model="usuario.numero" class="form-control" placeholder="948">
                     <small id="emailHelp" class="form-text text-muted">Nos não compartilharemos seus dados.</small>
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Endereço</label>
                 <input type="text" ng-model="usuario.endereco" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                    placeholder="Av. Dr. Dos Santos">
                 <small id="emailHelp" class="form-text text-muted">Seu Endereço não será apresentado para mais ninguem
                     !</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Bairro</label>
                 <input type="text" ng-model="usuario.bairro" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                    placeholder="Rio Grande">
                 <small id="emailHelp" class="form-text text-muted">Nos não compartilharemos seus dados.</small>
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Cidade</label>
-                <input type="text" ng-model="usuario.cidade" class="form-control" id="exampleInputPassword1">
+                <select ng-options="x.nome for x in municipios" ng-model="usuario.cidade" class="form-control"></select>
                 <small id="emailHelp" class="form-text text-muted">Seleciona ai consagrado.</small>
             </div>
         </form>
