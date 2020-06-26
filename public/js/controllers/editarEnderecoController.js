@@ -3,6 +3,17 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
 
     $scope.enviar = (usuario) => {
 
+
+        $http.post($rootScope.api + '/endereco/usuario/' + localStorage.getItem('code'), usuario)
+            .then(results => {
+                console.log(results)
+                Swal.fire({
+                    title: 'Endereço',
+                    text: 'Endereço confirmado',
+                    icon: 'success',
+                })
+            })
+            .catch(error => console.error(error))
         usuario.idCidade = usuario.cidade.codigo;
         usuario.cidade = null;
         console.log(usuario)
