@@ -2,7 +2,7 @@
   "id": "6f1a4c51-bd24-46a4-aada-54528774d231",
   "version": "2.0",
   "name": "ecothink",
-  "url": "http://localhost:3000/home/cadastro",
+  "url": "http://localhost:3000/user/editarEndereco",
   "tests": [{
     "id": "0c3d0e37-8688-4a78-8feb-cad567d56725",
     "name": "criação de ong",
@@ -917,6 +917,126 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "c1e4bbcd-307b-4dd4-80cf-e945b4c68bc3",
+    "name": "criacao de endereco",
+    "commands": [{
+      "id": "53dd9960-9a09-497b-aba1-897dd7115add",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/user/editarEndereco",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ee976df-f7fa-4881-9b7e-9305106d3d72",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b9afb41-af2b-4e70-8488-764915411a0a",
+      "comment": "",
+      "command": "click",
+      "target": "id=exampleInputEmail1",
+      "targets": [
+        ["id=exampleInputEmail1", "id"],
+        ["css=.col-6 > #exampleInputEmail1", "css:finder"],
+        ["xpath=//input[@id='exampleInputEmail1']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "182ab966-d7b5-474b-a79d-30ff80acd281",
+      "comment": "",
+      "command": "type",
+      "target": "id=exampleInputEmail1",
+      "targets": [
+        ["id=exampleInputEmail1", "id"],
+        ["css=.col-6 > #exampleInputEmail1", "css:finder"],
+        ["xpath=//input[@id='exampleInputEmail1']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "11740000"
+    }, {
+      "id": "294cf2ca-bac2-41dc-ab24-718caf0f26e4",
+      "comment": "",
+      "command": "type",
+      "target": "id=exampleInputPassword1",
+      "targets": [
+        ["id=exampleInputPassword1", "id"],
+        ["css=.col-6 > #exampleInputPassword1", "css:finder"],
+        ["xpath=//input[@id='exampleInputPassword1']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "1431"
+    }, {
+      "id": "a9ee7e4c-ab4d-46a8-9f24-aa7fddb4230c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(2) > #exampleInputEmail1",
+      "targets": [
+        ["css=.form-group:nth-child(2) > #exampleInputEmail1", "css:finder"],
+        ["xpath=(//input[@id='exampleInputEmail1'])[2]", "xpath:attributes"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "768a2e93-379c-45d5-8e01-89478de79a7f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(2) > #exampleInputEmail1",
+      "targets": [
+        ["css=.form-group:nth-child(2) > #exampleInputEmail1", "css:finder"],
+        ["xpath=(//input[@id='exampleInputEmail1'])[2]", "xpath:attributes"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": "Av. José Batista Campos"
+    }, {
+      "id": "e7981f5f-fb59-411f-97df-bc327d8333bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(3) > #exampleInputEmail1",
+      "targets": [
+        ["css=.form-group:nth-child(3) > #exampleInputEmail1", "css:finder"],
+        ["xpath=(//input[@id='exampleInputEmail1'])[3]", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7287639-5fb2-43a3-b650-c8b0d922c5a8",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(3) > #exampleInputEmail1",
+      "targets": [
+        ["css=.form-group:nth-child(3) > #exampleInputEmail1", "css:finder"],
+        ["xpath=(//input[@id='exampleInputEmail1'])[3]", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Cidade Anchieta"
+    }, {
+      "id": "eb0b5779-0bd4-4152-a594-b804861137ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(4) > #exampleInputPassword1",
+      "targets": [
+        ["css=.form-group:nth-child(4) > #exampleInputPassword1", "css:finder"],
+        ["xpath=(//input[@id='exampleInputPassword1'])[2]", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2006fdc9-ff16-4792-b45a-deede238db88",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(4) > #exampleInputPassword1",
+      "targets": [
+        ["css=.form-group:nth-child(4) > #exampleInputPassword1", "css:finder"],
+        ["xpath=(//input[@id='exampleInputPassword1'])[2]", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "Itanhaem"
+    }]
   }],
   "suites": [{
     "id": "191303df-c9e4-4bc4-b54b-2eca4d41f600",
@@ -926,6 +1046,6 @@
     "timeout": 300,
     "tests": ["0c3d0e37-8688-4a78-8feb-cad567d56725"]
   }],
-  "urls": ["http://localhost:3000/home/cadastrong", "http://localhost:3000/home/cadastro", "http://localhost:3000/home/login"],
+  "urls": ["http://localhost:3000/home/cadastrong", "http://localhost:3000/home/cadastro", "http://localhost:3000/home/login", "http://localhost:3000/user/editarEndereco"],
   "plugins": []
 }
