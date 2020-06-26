@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin, recursoFotoUser, cadastroDeFotoPerfil, $rootScope) {
+angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin, recursoFotoUser, cadastroDeFotoPerfil, cadastroDeUsuario, $rootScope) {
     recursoLogin.verify;
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
@@ -8,6 +8,7 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
 
 
     $scope.SelectFile = (e) => {
+
         const reader = new FileReader();
         reader.onload = (e) => {
             const valida = e.target.result.indexOf('data:image/')
@@ -30,7 +31,7 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
     }
 
     $scope.enviar = (usuario) => {
-
+        usuario.codigo = localStorage.getItem('code')
 
         if ($scope.adicionaImagem) {
             usuario.foto = { base64: $scope.PreviewImage, codigo: parseInt(recursoLogin.userCode) }
@@ -51,7 +52,21 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
                     $scope.mensagem = error.mensagem;
                     console.log(error)
                 })
+
+            usuario.foto = null
         }
+        cadastroDeUsuario.cadastrar(usuario)
+            .then(results => {
+                $scope.mensagem = results.mensagem;
+                const mensagem = results.mensagem;
+                Swal.fire({
+                    title: 'Usuario',
+                    text: mensagem,
+                    icon: 'success',
+                })
+                console.log(results)
+            })
+            .catch(error => console.warn(error))
         console.log(usuario)
     }
 });
