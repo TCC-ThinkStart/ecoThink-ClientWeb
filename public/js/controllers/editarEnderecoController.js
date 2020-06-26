@@ -19,6 +19,15 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
         console.log(usuario)
 
     }
+
+    $scope.verificar = (usuario) => {
+        if (usuario) {
+            $scope.isValid = true;
+            return true
+        } else {
+            return false
+        }
+    }
     //chamando todas as cidades de SP
     $http.get($rootScope.api + '/cidade')
         .then(results => { $scope.municipios = results.data })
