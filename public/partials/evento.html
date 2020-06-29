@@ -1,8 +1,10 @@
 <div class="row">
     <section class="col-md-12 corpo mt-3">
         <div class="row">
-            <section class="col-md-12 img">
-                <img class="img-fluid" src="{{eventImage}}" alt="">
+            <section class="col-md-12 img text-center">
+                <img class="img-fluid imgEvent text-center"
+                    ng-src="{{eventImage || 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png'}}"
+                    alt="">
             </section>
             <section class="col-md-12 titulo">
                 <h2 class="display-5 mt-3">{{eventoUnico.nome}}</h2>
@@ -43,13 +45,11 @@
                         <p>{{eventoUnico.descricao}}</p>
                     </section>
                 </div>
-                <div class="row">
+                <div class="row ">
                     <section class="col-12 mb-5">
-                        <button class="btn  btn-block btn-primary btn-lg">Inscrever</button>
+                        <button class="btn  btn-block btn-primary btn-lg mb-5">Inscrever</button>
                     </section>
                 </div>
-
-                <button class="btn btn-block btn-outline-dark">Registrar</button>
             </section>
         </div>
     </section>

@@ -2,3 +2,11 @@
     padding: 2.5rem;
     margin-bottom: 1.5rem;
 }
+.imgEvent{
+    width: auto;
+    object-fit: contain;
+    max-height: 300px;
+    align-items: center;
+    border-radius: 10px;
+    
+}
