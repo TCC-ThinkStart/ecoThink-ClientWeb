@@ -11,6 +11,25 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
         $http.get($rootScope.api + '/evento/pesquisa/' + pesquisa.nome)
             .then(results => {
                 $scope.resultados = results.data
+
+                for (let c = 0; c <= results.data.length; c++) {
+                    console.log(results.data[c].codigo)
+                    $http.get($rootScope.api + '/foto/evento/' + results.data[c].codigo)
+                        .then(imagens => {
+                            //evento tem foto
+                            if (imagens.data.length == 1) {
+                                //https://s3.amazonaws.com/mapa-da-obra-producao/wp-content/uploads/2019/10/shutterstock_1110036392.png
+                                $scope.resultados[c].imagem = $rootScope.api + '/' + imagens.data[0].url;
+                                console.log($rootScope.api + '/' + imagens.data[0].url);
+                            }
+                            //evento nao tem foto 
+                            else {
+
+                            }
+                        })
+                        .catch(error => console.log(error))
+                }
+
                 console.log(results)
             })
             .catch(error => console.warn(error))
