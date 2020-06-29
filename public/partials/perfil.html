@@ -20,7 +20,9 @@
         <div class="col-12 col-sm-12 text-center animated fadeIn delay-1s slow">
             <div class="row">
                 <div class="col-8 col-sm-8 offset-2 offset-sm-2">
-                    <img src="{{imageProfile}}" alt="image profile" class="img-fluid img-profile">
+                    <img ng-src="{{imageProfile || 'https://www.jumpstarttech.com/files/2018/08/Network-Profile.png'}}"
+                        onerror="angular.element(this).scope().imgError()" alt="image profile"
+                        class="img-fluid img-profile">
                 </div>
             </div>
         </div>
