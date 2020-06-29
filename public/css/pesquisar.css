@@ -16,3 +16,10 @@
     overflow: hidden;
     text-overflow: ellipsis; 
 }
+.badge.badge-info.float-right{
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+select.keyword>option{
+    text-transform: capitalize;
+}   

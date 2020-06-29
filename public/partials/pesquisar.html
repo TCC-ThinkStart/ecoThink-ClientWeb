@@ -34,7 +34,8 @@
                         <div class="form-group">
                             <label class="" for="inlineFormCustomSelect">Selecione a Categoria</label>
                             <select ng-options="x.palavra for x in palavrasChave" ng-model="pesquisar.palavrachave"
-                                class="custom-select custom-select mb-3"></select>
+                                ng-change="pesquisarChave(pesquisar)"
+                                class="custom-select custom-select mb-3 keyword"></select>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -54,11 +55,12 @@
             </section>
         </div>
         <div class="row mb-5">
-            <section class="col-md-4 col-12 mb-5 animated bounceInLeft delay-1s" ng-repeat="result in resultados">
+            <section class="col-md-4 col-12 mb-5 animated bounceInLeft" ng-repeat="result in resultados">
                 <div class="card pesquisar">
                     <img src="{{result.imagem}}" class="card-img-top pesquisarImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{result.nome}}</h5>
+                        <span class="badge badge-info float-right">{{result.palavra[0].palavra}}</span>
                         <p class="card-text resultDesc">{{result.descricao}}</p>
                     </div>
                     <div class="card-footer text-muted bg-white">
