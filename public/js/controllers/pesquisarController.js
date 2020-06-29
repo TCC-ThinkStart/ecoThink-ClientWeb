@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('PesquisarController', function ($rootScope, $scope, $http, $location, $window, recursoCity) {
+angular.module('ecothink').controller('PesquisarController', function ($rootScope, $scope, $http, $location, $window, recursoCity, recursoPalavraChave) {
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
     $rootScope.isDark = false;
@@ -6,6 +6,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
 
     recursoCity.query((results) => $scope.municipios = results)
 
+    recursoPalavraChave.query((results) => $scope.palavrasChave = results)
 
     $scope.pesquisaNome = (pesquisa) => {
         $http.get($rootScope.api + '/evento/pesquisa/' + pesquisa.nome)
