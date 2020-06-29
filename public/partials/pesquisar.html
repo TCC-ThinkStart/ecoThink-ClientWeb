@@ -58,37 +58,20 @@
             </section>
         </div>
         <div class="row mb-5">
-            <section class="col-md-4 col-12 animated bounceInLeft delay-1s slow" ng-repeat="result in resultados">
-                <div class="card">
-                    <img src="{{result.imagem}}" class="card-img-top" alt="...">
+            <section class="col-md-4 col-12 mb-5 animated bounceInLeft delay-1s slow" ng-repeat="result in resultados">
+                <div class="card pesquisar">
+                    <img src="{{result.imagem}}" class="card-img-top pesquisarImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{result.nome}}</h5>
-                        <p class="card-text">{{result.descricao}}</p>
+                        <p class="card-text resultDesc">{{result.descricao}}</p>
+                    </div>
+                    <div class="card-footer text-muted bg-white">
+                        <a href="/user/evento/{{result.codigo}}" class="btn btn-light btn-block" data-toggle="tooltip"
+                            data-placement="top" title="Veja Mais"><i class="fas fa-angle-double-down"></i></a>
                     </div>
                 </div>
             </section>
-            <!-- <section class="col-md-4 col-12 animated bounceInRight delay-1s slow">
-                <div class="card">
-                    <img src="https://lh3.googleusercontent.com/Nua32L2HkOrjoJg8UOnN8sXo--2cl70NneIwG2CMLUGcfKtwcmPrEo5GoWBFTaUL_NsOboTBuDnAwAyjokuXvqBreF1hnos6Bu1Ytw"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-            </section>
-            <section class="col-md-4 col-12 animated bounceInRight delay-1s slow">
-                <div class="card">
-                    <img src="https://lh3.googleusercontent.com/Nua32L2HkOrjoJg8UOnN8sXo--2cl70NneIwG2CMLUGcfKtwcmPrEo5GoWBFTaUL_NsOboTBuDnAwAyjokuXvqBreF1hnos6Bu1Ytw"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-            </section> -->
+
         </div>
     </section>
 </div>
