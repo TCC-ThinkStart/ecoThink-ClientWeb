@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label class="" for="inlineFormCustomSelect">Selecione a Cidade</label>
                             <select ng-options="x.nome for x in municipios" ng-model="pesquisar.cidade"
-                                class="custom-select custom-select mb-3"></select>
+                                ng-change="pesquisarCity(pesquisar)" class="custom-select custom-select mb-3"></select>
 
                         </div>
                     </div>
