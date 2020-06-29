@@ -181,7 +181,13 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
-
+    .factory('recursoPalavraChave', ($resource, $rootScope) => {
+        return $resource($rootScope.api + '/palavrachave/:chaveId', null, {
+            update: {
+                method: 'put'
+            }
+        });
+    })
     .factory('recursoEvento', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/evento/:eventoId', null, {
             update: {
