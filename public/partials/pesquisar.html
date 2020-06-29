@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row">
-            <section class=" col-md-12 animated bounceInRight delay-1s slow ">
+            <section class=" col-md-12 animated bounceInRight">
                 <nav class="nav justify-content-center">
                     <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
@@ -50,14 +50,21 @@
             </section>
         </div>
         <div class="row">
-            <section class="col-md-12 p-5 animated bounceInLeft delay-1s slow">
+            <section class="col-md-12 p-5 animated bounceInLeft">
                 <h3 class="h3 text-center">Resultados</h3>
             </section>
         </div>
         <div class="row mb-5">
+            <div class="col-12">
+                <h4 class="font-weight-light text-truncate text-center animated bounceInRight"
+                    ng-hide="resultados.length"> Sem Resultados No
+                    Momento</h4>
+            </div>
+
             <section class="col-md-4 col-12 mb-5 animated bounceInLeft" ng-repeat="result in resultados">
                 <div class="card pesquisar">
-                    <img src="{{result.imagem}}" class="card-img-top pesquisarImg" alt="...">
+                    <img ng-src="{{result.imagem || 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png'}}"
+                        onerror="angular.element(this).scope().imgError()" class="card-img-top pesquisarImg" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{result.nome}}</h5>
                         <span class="badge badge-info float-right">{{result.palavra[0].palavra}}</span>
