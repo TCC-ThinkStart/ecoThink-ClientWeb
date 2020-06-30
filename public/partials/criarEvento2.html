@@ -33,7 +33,7 @@
                                         <div class="col-12 form-login">
                                             <div class="form-group">
                                                 <label>Nome do Evento(Ação Social)</label>
-                                                <input type="text" name="evento" ng-model="evento.nome"
+                                                <input type="text" name="evento" ng-model="event.nome"
                                                     ng-class="{'is-valid':isValid}" class="form-control form-control-md"
                                                     placeholder="Campanha de Ação Social">
                                                 <div ng-if="isValid" class="valid-feedback">
@@ -43,7 +43,7 @@
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label>Data De Inicio</label>
-                                                    <input type="text" ng-model="event.dataInicio" ui-mask="99/99/9999"
+                                                    <input type="text" ng-model="event.dataFinal" ui-mask="99/99/9999"
                                                         ui-mask-placeholder class="form-control form-control-md ">
                                                     <div ng-if="isValid" class="valid-feedback">
                                                         Valido!
@@ -76,7 +76,8 @@
                                         <div class="col-12 botao-cadastro evento mb-2">
                                             <a class="btn btn-block mx-auto  bg-logo p-3 mt-3 mb-4 border-rounded"
                                                 id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                                                aria-controls="nav-profile" aria-selected="false">
+                                                aria-controls="nav-profile" aria-selected="false"
+                                                ng-click="enviar(event)">
                                                 Avançar
                                                 <i class="fas fa-angle-double-right"></i>
                                             </a>
@@ -101,7 +102,7 @@
                                             <div class="row">
                                                 <div class="form-group col-10">
                                                     <label>Endereço</label>
-                                                    <input type="text" name="evento" ng-model="evento.nome"
+                                                    <input type="text" name="evento" ng-model="event.logradouro"
                                                         ng-class="{'is-valid':isValid}"
                                                         class="form-control form-control-md"
                                                         placeholder="Nome da rua Ou Avenida">
@@ -111,7 +112,7 @@
                                                 </div>
                                                 <div class="form-group col-2">
                                                     <label>Nº</label>
-                                                    <input type="number" name="evento" ng-model="evento.nome"
+                                                    <input type="number" name="evento" ng-model="event.numero"
                                                         ng-class="{'is-valid':isValid}"
                                                         class="form-control form-control-md" placeholder="Nº">
                                                     <div ng-if="isValid" class="valid-feedback">
@@ -130,7 +131,7 @@
                                                 </div>
                                                 <div class="form-group col-8">
                                                     <label>Bairro</label>
-                                                    <input type="text" ng-model="event.dataInicio"
+                                                    <input type="text" ng-model="event.bairro"
                                                         class="form-control form-control-md ">
                                                     <div ng-if="isValid" class="valid-feedback">
                                                         Valido!
@@ -153,7 +154,8 @@
                                         <div class="col-12 botao-cadastro evento mb-2">
                                             <a class="btn btn-block mx-auto  bg-logo p-3 mt-3 mb-4 border-rounded"
                                                 id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                                                aria-controls="nav-contact" aria-selected="false">
+                                                aria-controls="nav-contact" aria-selected="false"
+                                                ng-click="enviar(event)">
                                                 Avançar
                                                 <i class="fas fa-angle-double-right"></i>
                                             </a>
@@ -199,7 +201,7 @@
                                         <div class="col-12 botao-cadastro evento mb-2">
                                             <a class="btn btn-block mx-auto  btn-info p-3 mt-3 mb-4 border-rounded"
                                                 id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                                                aria-controls="nav-contact" aria-selected="false">
+                                                aria-controls="nav-contact" aria-selected="false" ng-click="inserir()">
                                                 Enviar
                                                 <i class="fas fa-check"></i>
                                             </a>
