@@ -50,7 +50,7 @@ input[type=file].form-control-plaintext-dark{
     opacity: 0;
 }
 .img-form{
-    opacity: 0.3;
+    opacity: 0.5;
     margin-bottom: 0;
     border-radius:2rem;
 }

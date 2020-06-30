@@ -25,7 +25,7 @@
                         aria-labelledby="evento-home-tab">
                         <!-- conteudo de criação de evento -->
                         <form novalidate>
-                            <div class="row animated bounceIn delay-1s slow">
+                            <div class="row animated fadeInLeft fast">
                                 <div
                                     class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
                                     <!-- form -->
@@ -92,7 +92,7 @@
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <form novalidate>
-                            <div class="row animated bounceIn delay-1s slow">
+                            <div class="row animated fadeInLeft fast">
                                 <div
                                     class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
                                     <!-- form -->
@@ -100,7 +100,7 @@
                                     <div class="row">
                                         <div class="col-12 form-login">
                                             <div class="row">
-                                                <div class="form-group col-10">
+                                                <div class="form-group col-9">
                                                     <label>Endereço</label>
                                                     <input type="text" name="evento" ng-model="event.logradouro"
                                                         ng-class="{'is-valid':isValid}"
@@ -110,7 +110,7 @@
                                                         Valido!
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-2">
+                                                <div class="form-group col-3">
                                                     <label>Nº</label>
                                                     <input type="number" name="evento" ng-model="event.numero"
                                                         ng-class="{'is-valid':isValid}"
@@ -168,7 +168,7 @@
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <form novalidate>
-                            <div class="row animated bounceIn delay-1s slow">
+                            <div class="row animated fadeInLeft fast">
                                 <div
                                     class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
                                     <!-- form -->
@@ -179,7 +179,8 @@
                                                 ng-src="{{ PreviewImage || 'https://www.moblee.com.br/blog/wp-content/uploads/sites/2/2018/04/gesta%CC%83o-de-promoters-1-8-1.png'}}" />
                                         </div>
                                         <div class="col-1">
-                                            <a class=" btn btn-light "><i class="fas fa-times"></i></a>
+                                            <a class=" btn btn-light " ng-click="imgRemove()"><i
+                                                    class="fas fa-times"></i></a>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12 col-12 col-md-12 mb-4 text-center">

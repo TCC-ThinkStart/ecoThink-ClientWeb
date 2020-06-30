@@ -29,6 +29,9 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
         reader.readAsDataURL(e.target.files[0]);
 
     };
+    $scope.imgRemove = () => {
+        $scope.PreviewImage = null;
+    }
 
     $scope.enviar = (events) => {
 
@@ -46,6 +49,22 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
     $scope.inserir = () => {
         //capturando todos os dados do sessionStorage
         $scope.eventoEnviar = $scope.evento[0]
+        //arrumar data
+        const datainit = $scope.eventoEnviar.dataInicio;
+        const diainit = datainit.substr(0, 2);
+        const mesinit = datainit.substr(2, 2);
+        const anoinit = datainit.substr(4, 4);
+        const dataFormatadainit = anoinit + "-" + mesinit + "-" + diainit;
+        $scope.eventoEnviar.dataInicio = dataFormatadainit;
+        //
+        const dataEnd = $scope.eventoEnviar.dataFinal;
+        const diaEnd = dataEnd.substr(0, 2);
+        const mesEnd = dataEnd.substr(2, 2);
+        const anoEnd = dataEnd.substr(4, 4);
+        const dataFormatadaEnd = anoEnd + "-" + mesEnd + "-" + diaEnd;
+        $scope.eventoEnviar.dataFinal = dataFormatadaEnd;
+        //requisição de endereço
+        $scope.eventoEnviar.idOrganizador = parseInt(recursoLogin.userCode);
         $scope.eventoEnviar.cep = $scope.evento[1].cep
         $scope.eventoEnviar.logradouro = $scope.evento[1].logradouro
         $scope.eventoEnviar.bairro = $scope.evento[1].bairro
