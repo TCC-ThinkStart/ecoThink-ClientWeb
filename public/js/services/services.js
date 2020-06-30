@@ -207,7 +207,8 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                     recursoEvento.update({ id: evento.codigo }, evento, function () {
                         resolve({
                             mensagem: 'evento: ' + evento.nome + ' atualizado com sucesso!',
-                            inclusao: false
+                            inclusao: false,
+                            codigo: evento.codigo
                         });
                     }, function (error) {
                         console.log(error);
