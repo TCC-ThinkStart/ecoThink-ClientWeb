@@ -49,6 +49,7 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
 
         cadastroDeEventos.cadastrar(event)
             .then(results => {
+                console.log(results)
                 $scope.mensagem = results.mensagem;
                 const mensagem = results.mensagem;
                 Swal.fire({
@@ -56,7 +57,15 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
                     text: mensagem,
                     icon: 'success',
                 })
-                console.log(results)
+                const codeEvent = results.codigo;
+                event.foto = { base64: $scope.PreviewImage }
+                $http.post('/foto/usuario/' + localStorage.getItem('code') + '/evento/' + codeEvent, event.foto)
+                    .then(result => {
+                        console.log(results)
+                    })
+                    .catch(error => {
+                        console.error(error)
+                    })
             })
             .catch(error => {
                 $scope.mensagem = error.mensagem;
