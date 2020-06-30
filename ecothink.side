@@ -2,7 +2,7 @@
   "id": "6f1a4c51-bd24-46a4-aada-54528774d231",
   "version": "2.0",
   "name": "ecothink",
-  "url": "http://localhost:3000/user/editarEndereco",
+  "url": "http://localhost:3000/user/pesquisar",
   "tests": [{
     "id": "0c3d0e37-8688-4a78-8feb-cad567d56725",
     "name": "criação de ong",
@@ -1037,6 +1037,84 @@
       ],
       "value": "Itanhaem"
     }]
+  }, {
+    "id": "fb02747d-cd7b-41ab-b00b-02f2334c3711",
+    "name": "pesquisa de nome",
+    "commands": [{
+      "id": "29edc232-b977-4280-ae90-522f4c6eb27c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/user/pesquisar",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0d94363-8f63-41e1-aa8e-372936bff4e3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2bfd439-ae89-4152-903b-65ca9b2b1c8b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-control",
+      "targets": [
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='nav-home']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db9a5f39-70b4-44e3-b7a6-6c26e41c5629",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-control",
+      "targets": [
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='nav-home']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "google"
+    }, {
+      "id": "c121428b-5500-4c1a-9a8d-5a0c8e66d974",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='nav-home']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Enviar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "400ac381-7e59-44b8-9cbe-a686b1a27a8e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='nav-home']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Enviar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f2cbcfe-086a-4b81-99e2-95af76ca0853",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='nav-home']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Enviar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "191303df-c9e4-4bc4-b54b-2eca4d41f600",
@@ -1046,6 +1124,6 @@
     "timeout": 300,
     "tests": ["0c3d0e37-8688-4a78-8feb-cad567d56725"]
   }],
-  "urls": ["http://localhost:3000/home/cadastrong", "http://localhost:3000/home/cadastro", "http://localhost:3000/home/login", "http://localhost:3000/user/editarEndereco"],
+  "urls": ["http://localhost:3000/home/cadastrong", "http://localhost:3000/home/cadastro", "http://localhost:3000/home/login", "http://localhost:3000/user/editarEndereco", "http://localhost:3000/user/pesquisar"],
   "plugins": []
 }
