@@ -24,7 +24,7 @@
                     <div class="tab-pane fade show active" id="evento-home" role="tabpanel"
                         aria-labelledby="evento-home-tab">
                         <!-- conteudo de criação de evento -->
-                        <form novalidate ng-submit="submeter(usuario)">
+                        <form novalidate>
                             <div class="row animated bounceIn delay-1s slow">
                                 <div
                                     class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
@@ -90,20 +90,125 @@
 
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="form-group">
-                            <label class="" for="inlineFormCustomSelect">Selecione a Categoria</label>
-                            <select ng-options="x.palavra for x in palavrasChave" ng-model="pesquisar.palavrachave"
-                                ng-change="pesquisarChave(pesquisar)"
-                                class="custom-select custom-select mb-3 keyword"></select>
-                        </div>
+                        <form novalidate>
+                            <div class="row animated bounceIn delay-1s slow">
+                                <div
+                                    class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
+                                    <!-- form -->
+                                    <h4 class="text-center mb-4">Endereço</h4>
+                                    <div class="row">
+                                        <div class="col-12 form-login">
+                                            <div class="row">
+                                                <div class="form-group col-10">
+                                                    <label>Endereço</label>
+                                                    <input type="text" name="evento" ng-model="evento.nome"
+                                                        ng-class="{'is-valid':isValid}"
+                                                        class="form-control form-control-md"
+                                                        placeholder="Nome da rua Ou Avenida">
+                                                    <div ng-if="isValid" class="valid-feedback">
+                                                        Valido!
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-2">
+                                                    <label>Nº</label>
+                                                    <input type="number" name="evento" ng-model="evento.nome"
+                                                        ng-class="{'is-valid':isValid}"
+                                                        class="form-control form-control-md" placeholder="Nº">
+                                                    <div ng-if="isValid" class="valid-feedback">
+                                                        Valido!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-4">
+                                                    <label>CEP</label>
+                                                    <input type="text" ng-model="event.cep" ui-mask="99999-999"
+                                                        ui-mask-placeholder class="form-control form-control-md">
+                                                    <div ng-if="isValid" class="valid-feedback">
+                                                        Valido!
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-8">
+                                                    <label>Bairro</label>
+                                                    <input type="text" ng-model="event.dataInicio"
+                                                        class="form-control form-control-md ">
+                                                    <div ng-if="isValid" class="valid-feedback">
+                                                        Valido!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Cidade</label>
+                                                <select ng-options="x.nome for x in municipios" ng-model="event.cidade"
+                                                    class="form-control form-control-md "></select>
+                                                <div ng-if="isValid" class="valid-feedback">
+                                                    Valido!
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- buttom -->
+                                    <div class="row">
+                                        <div class="col-12 botao-cadastro evento mb-2">
+                                            <a class="btn btn-block mx-auto  bg-logo p-3 mt-3 mb-4 border-rounded"
+                                                id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">
+                                                Avançar
+                                                <i class="fas fa-angle-double-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <div class="form-group">
-                            <label class="" for="inlineFormCustomSelect">Selecione a Cidade</label>
-                            <select ng-options="x.nome for x in municipios" ng-model="pesquisar.cidade"
-                                ng-change="pesquisarCity(pesquisar)" class="custom-select custom-select mb-3"></select>
+                        <form novalidate>
+                            <div class="row animated bounceIn delay-1s slow">
+                                <div
+                                    class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
+                                    <!-- form -->
+                                    <h4 class="text-center mb-4">Foto Do Evento</h4>
+                                    <div class="row">
+                                        <div class="col-10 form-login">
+                                            <img class="img-fluid img-form"
+                                                ng-src="{{PreviewImage || 'https://www.moblee.com.br/blog/wp-content/uploads/sites/2/2018/04/gesta%CC%83o-de-promoters-1-8-1.png'}}" />
+                                        </div>
+                                        <div class="col-1">
+                                            <a class=" btn btn-light "><i class="fas fa-times"></i></a>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-12 col-md-12 mb-4 text-center">
+                                                <input class="custom-file-input">
+                                                <div class="custom-file ">
+                                                    <input type="file" class="custom-file-input" accept='image/*'
+                                                        ng-model="event.img" name="eventImg"
+                                                        onchange="angular.element(this).scope().SelectFile(event)">
+                                                    <label class="custom-file-label" for="customFile">
+                                                        Escolha Uma Foto
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        </div>
+                                    <!-- buttom -->
+                                    <div class="row">
+                                        <div class="col-12 botao-cadastro evento mb-2">
+                                            <a class="btn btn-block mx-auto  btn-info p-3 mt-3 mb-4 border-rounded"
+                                                id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">
+                                                Enviar
+                                                <i class="fas fa-check"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>

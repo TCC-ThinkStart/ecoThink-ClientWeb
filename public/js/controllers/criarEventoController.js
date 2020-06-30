@@ -6,6 +6,7 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
 
     $rootScope.isLogin = false;
 
+    $rootScope.isDark = true;
 
     $scope.SelectFile = (e) => {
         const reader = new FileReader();
