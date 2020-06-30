@@ -1,0 +1,114 @@
+<div class="row">
+    <section class="col-md-12  geral mt-3">
+        <div class="row">
+            <section class=" col-md-12">
+                <div class="row">
+                    <div class="col-12  mt-2 titulo-cadastro">
+                        <div class="text-group text-center ">
+                            <h3 class="display-4 ">Criação de Evento</h3>
+                            <p class="lead">Entre com os dados para solicitar a criação do evento!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <nav class="nav justify-content-center">
+                    <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link" id="evento-home-tab" data-toggle="tab" href="#evento-home"
+                            role="tab" aria-controls="nav-home" aria-selected="true">Nome</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                            role="tab" aria-controls="nav-profile" aria-selected="false">Categoria</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                            role="tab" aria-controls="nav-contact" aria-selected="false">Cidade</a>
+                    </div>
+                </nav> -->
+                <div class="tab-content mt-3 mb-5" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="evento-home" role="tabpanel"
+                        aria-labelledby="evento-home-tab">
+                        <!-- conteudo de criação de evento -->
+                        <form novalidate ng-submit="submeter(usuario)">
+                            <div class="row animated bounceIn delay-1s slow">
+                                <div
+                                    class="col-12 col-sm-8 offset-md-2 p-4 mt-2 mb-5 text-dark shadow bg-white arredondar">
+                                    <!-- form -->
+                                    <div class="row">
+                                        <div class="col-12 form-login">
+                                            <div class="form-group">
+                                                <label>Nome do Evento(Ação Social)</label>
+                                                <input type="text" name="evento" ng-model="evento.nome"
+                                                    ng-class="{'is-valid':isValid}" class="form-control form-control-md"
+                                                    placeholder="Campanha de Ação Social">
+                                                <div ng-if="isValid" class="valid-feedback">
+                                                    Valido!
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label>Data De Inicio</label>
+                                                    <input type="text" ng-model="event.dataInicio" ui-mask="99/99/9999"
+                                                        ui-mask-placeholder class="form-control form-control-md ">
+                                                    <div ng-if="isValid" class="valid-feedback">
+                                                        Valido!
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label>Data De Encerramento</label>
+                                                    <input type="text" ng-model="event.dataInicio" ui-mask="99/99/9999"
+                                                        ui-mask-placeholder class="form-control form-control-md ">
+                                                    <div ng-if="isValid" class="valid-feedback">
+                                                        Valido!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Descrição</label>
+                                                <textarea ng-model="event.descricao"
+                                                    class="form-control form-control-md "
+                                                    placeholder="Descricao do Evento" rows="4">
+                                            </textarea>
+                                                <div ng-if="isValid" class="valid-feedback">
+                                                    Valido!
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- buttom -->
+                                    <div class="row">
+                                        <div class="col-12 botao-cadastro evento mb-2">
+                                            <a class="btn btn-block mx-auto  bg-logo p-3 mt-3 mb-4 border-rounded"
+                                                id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                                                aria-controls="nav-profile" aria-selected="false">
+                                                Avançar
+                                                <i class="fas fa-angle-double-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="form-group">
+                            <label class="" for="inlineFormCustomSelect">Selecione a Categoria</label>
+                            <select ng-options="x.palavra for x in palavrasChave" ng-model="pesquisar.palavrachave"
+                                ng-change="pesquisarChave(pesquisar)"
+                                class="custom-select custom-select mb-3 keyword"></select>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="form-group">
+                            <label class="" for="inlineFormCustomSelect">Selecione a Cidade</label>
+                            <select ng-options="x.nome for x in municipios" ng-model="pesquisar.cidade"
+                                ng-change="pesquisarCity(pesquisar)" class="custom-select custom-select mb-3"></select>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </section>
+</div>
