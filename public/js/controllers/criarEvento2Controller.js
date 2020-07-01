@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('CriarEventos2Controller', function ($scope, $rootScope, $http, recursoLogin, recursoCity) {
+angular.module('ecothink').controller('CriarEventosController', function ($scope, $rootScope, $http, recursoLogin, recursoCity) {
     recursoLogin.verify;
     $rootScope.isLogin = false;
 
@@ -78,14 +78,14 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
         $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
             .then(event => {
                 $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
-                console.log(event.data)
+
                 $http.post($rootScope.api + '/foto/usuario/' + recursoLogin.userCode + '/evento/' + event.data.codigo, $scope.eventoEnviar.foto)
                     .then(foto => {
 
                         if (foto.data) {
                             const msg = 'Evento Criado Com Sucesso!'
 
-                            console.log(foto.idEvento)
+
 
                             Swal.fire({
                                 title: 'Evento',
