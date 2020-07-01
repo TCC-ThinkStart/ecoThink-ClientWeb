@@ -70,32 +70,33 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
         $scope.eventoEnviar.logradouro = $scope.evento[1].logradouro
         $scope.eventoEnviar.bairro = $scope.evento[1].bairro
         $scope.eventoEnviar.numero = $scope.evento[1].numero
-
+        $scope.eventoEnviar.idCidade = $scope.evento[1]['cidade'].codigo
+        $scope.eventoEnviar['cidade'] = null
 
         console.log($scope.eventoEnviar)
 
-        $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
-            .then(event => {
-                $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
-                $http.post($rootScope.api + '/foto/usuario/' + recursoLogin.userCode + '/evento/' + event.data.codigo, $scope.eventoEnviar.foto)
-                    .then(foto => {
+        // $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
+        //     .then(event => {
+        //         $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
+        //         $http.post($rootScope.api + '/foto/usuario/' + recursoLogin.userCode + '/evento/' + event.data.codigo, $scope.eventoEnviar.foto)
+        //             .then(foto => {
 
-                        if (foto.data) {
-                            const msg = 'Evento Criado Com Sucesso!'
+        //                 if (foto.data) {
+        //                     const msg = 'Evento Criado Com Sucesso!'
 
-                            console.log(foto.idEvento)
+        //                     console.log(foto.idEvento)
 
-                            Swal.fire({
-                                title: 'Evento',
-                                text: msg,
-                                icon: 'success',
-                            })
-                        }
+        //                     Swal.fire({
+        //                         title: 'Evento',
+        //                         text: msg,
+        //                         icon: 'success',
+        //                     })
+        //                 }
 
-                    })
-                    .catch(erro => console.error(erro))
-            })
-            .catch(error => console.error)
+        //             })
+        //             .catch(erro => console.error(erro))
+        //     })
+        //     .catch(error => console.error)
 
 
 
