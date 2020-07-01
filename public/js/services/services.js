@@ -185,7 +185,8 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             return $q(function (resolve, reject) {
                 //caso existir esse id ele ira atualizar as informações 
                 if (endereco.codigo) {
-                    recursoEndereco.update({ usuarioId: endereco.codigo }, endereco, function () {
+
+                    recursoEndereco.update({ parametro: endereco.codigo }, endereco, function () {
                         $rootScope.$broadcast(evento);
                         resolve({
                             mensagem: 'endereco: atualizado com sucesso!',

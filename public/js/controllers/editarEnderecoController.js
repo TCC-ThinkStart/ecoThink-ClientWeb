@@ -1,14 +1,12 @@
-angular.module('ecothink').controller('EditarEnderecoController', function ($scope, $http, $rootScope, recursoLogin, recursoCity, recursoUser, recursoEndereco) {
+angular.module('ecothink').controller('EditarEnderecoController', function ($scope, $http, $rootScope, recursoLogin, recursoCity, recursoUser, recursoEndereco, cadastroDeEndereco) {
     recursoLogin.verify
     $rootScope.isLogin = false;
-    $scope.optionValidations = "formulario.cep.$dirty && formulario.cep.$invalid"
+
     $scope.validacao = (usuario) => {
 
-        if (usuario.cep && usuario.numero && usuario.logradouro) {
-            console.log('numero tem dado')
+        if (usuario.cep && usuario.numero && usuario.logradouro && usuario.bairro) {
             return true
         } else {
-            console.log('numero nao tem')
             return false
         }
     }
@@ -28,7 +26,27 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
             recursoEndereco.get({ parametro: results.idEndereco }, (endereco) => {
                 console.log(endereco)
                 $scope.usuario = endereco
-
+                //parametros passados pelo usuario
+                $scope.submeter = (usuario) => {
+                    $http.put($rootScope.api + '/endereco/usuario/' + recursoLogin.userCode, usuario)
+                        .then(result => {
+                            const mensagem = result.data.success;
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Endereço',
+                                text: mensagem,
+                            })
+                        })
+                        .catch(error => {
+                            const mensagem = error.data.error;
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erro',
+                                text: mensagem,
+                            })
+                            console.log(error)
+                        })
+                }
                 // cadastroDeEndereco.cadastrar()
             })
         }
