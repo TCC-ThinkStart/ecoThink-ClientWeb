@@ -1,14 +1,15 @@
-angular.module('ecothink').controller('CriarEventos2Controller', function ($scope, $rootScope, $http, recursoLogin, cadastroDeEventos) {
+angular.module('ecothink').controller('CriarEventos2Controller', function ($scope, $rootScope, $http, recursoLogin, recursoCity) {
     recursoLogin.verify;
     $rootScope.isLogin = false;
 
+    recursoCity.query((results) => $scope.municipios = results)
 
 
     let event = []
     event = JSON.parse(sessionStorage.getItem('event')) || [];
     $scope.evento = event;
 
-    console.log($scope.evento)
+
 
     $scope.SelectFile = (e) => {
         const reader = new FileReader();
@@ -70,8 +71,32 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
         $scope.eventoEnviar.bairro = $scope.evento[1].bairro
         $scope.eventoEnviar.numero = $scope.evento[1].numero
 
-        $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
+
         console.log($scope.eventoEnviar)
+
+        $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
+            .then(event => {
+                $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
+                $http.post($rootScope.api + '/foto/usuario/' + recursoLogin.userCode + '/evento/' + event.data.codigo, $scope.eventoEnviar.foto)
+                    .then(foto => {
+
+                        if (foto.data) {
+                            const msg = 'Evento Criado Com Sucesso!'
+
+                            console.log(foto.idEvento)
+
+                            Swal.fire({
+                                title: 'Evento',
+                                text: msg,
+                                icon: 'success',
+                            })
+                        }
+
+                    })
+                    .catch(erro => console.error(erro))
+            })
+            .catch(error => console.error)
+
 
 
         sessionStorage.clear()
