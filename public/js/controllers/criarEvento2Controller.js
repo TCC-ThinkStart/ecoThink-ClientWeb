@@ -75,28 +75,29 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
 
         console.log($scope.eventoEnviar)
 
-        // $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
-        //     .then(event => {
-        //         $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
-        //         $http.post($rootScope.api + '/foto/usuario/' + recursoLogin.userCode + '/evento/' + event.data.codigo, $scope.eventoEnviar.foto)
-        //             .then(foto => {
+        $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
+            .then(event => {
+                $scope.eventoEnviar.foto = { base64: $scope.PreviewImage }
+                console.log(event.data)
+                $http.post($rootScope.api + '/foto/usuario/' + recursoLogin.userCode + '/evento/' + event.data.codigo, $scope.eventoEnviar.foto)
+                    .then(foto => {
 
-        //                 if (foto.data) {
-        //                     const msg = 'Evento Criado Com Sucesso!'
+                        if (foto.data) {
+                            const msg = 'Evento Criado Com Sucesso!'
 
-        //                     console.log(foto.idEvento)
+                            console.log(foto.idEvento)
 
-        //                     Swal.fire({
-        //                         title: 'Evento',
-        //                         text: msg,
-        //                         icon: 'success',
-        //                     })
-        //                 }
+                            Swal.fire({
+                                title: 'Evento',
+                                text: msg,
+                                icon: 'success',
+                            })
+                        }
 
-        //             })
-        //             .catch(erro => console.error(erro))
-        //     })
-        //     .catch(error => console.error)
+                    })
+                    .catch(erro => console.error(erro))
+            })
+            .catch(error => console.error(error))
 
 
 
