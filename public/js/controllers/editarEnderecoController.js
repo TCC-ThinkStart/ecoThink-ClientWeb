@@ -38,11 +38,11 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
                             })
                         })
                         .catch(error => {
-                            const mensagem = error.data.error;
+
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Erro',
-                                text: mensagem,
+                                text: 'Favor Altere algum dado e tente Novamente!',
                             })
                             console.log(error)
                         })
