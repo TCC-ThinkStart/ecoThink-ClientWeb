@@ -9,37 +9,56 @@
                 <h4 class="h4">Editar Endereço</h4>
             </div>
             <div class="col-2 icone-config icone-editarEndereco">
-                <a href="#" ng-click="enviar(usuario)" ng-if="verificar(usuario)"><i class="fas fa-check"></i></a>
+                <a href="#" ng-click="submeter()" ng-if="validacao(usuario)"><i class="fas fa-check"></i></a>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-8 offset-md-2 col-12 mt-4 p-3 animated bounceInRight delay-1s ">
-        <form novalidate>
+        <form novalidate name="formulario" ng-submit="submeter()">
             <div class="row">
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">CEP</label>
-                    <input type="text" ng-model="usuario.cep" class="form-control" ui-mask="99999-999"
-                        ui-mask-placeholder aria-describedby="emailHelp">
+                    <input name="cep" type="text" ng-model="usuario.cep" class="form-control" ui-mask="99999-999"
+                        ui-mask-placeholder aria-describedby="emailHelp" required>
                     <small id="emailHelp" class="form-text text-muted">Insira o CEP do lugar onde Mora.</small>
+                    <span ng-show="formulario.cep.$touched && formulario.cep.$invalid"
+                        class="form-control alert-danger">
+                        Cep obrigatório
+                    </span>
                 </div>
                 <div class="form-group col-6">
                     <label for="exampleInputPassword1">Nº</label>
-                    <input type="password" ng-model="usuario.numero" class="form-control" placeholder="948">
+                    <input name="numero" type="text" ng-model="usuario.numero" class="form-control" placeholder="948"
+                        required>
                     <small id="emailHelp" class="form-text text-muted">Nos não compartilharemos seus dados.</small>
+                    <span ng-show="formulario.numero.$touched && formulario.numero.$invalid"
+                        class="form-control alert-danger">
+                        Numero obrigatório
+                    </span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Endereço</label>
-                <input type="text" ng-model="usuario.logradouro" class="form-control" placeholder="Av. Dr. Dos Santos">
+                <input name="logradouro" type="text" ng-model="usuario.logradouro" class="form-control"
+                    placeholder="Av. Dr. Dos Santos">
                 <small id="emailHelp" class="form-text text-muted">Seu Endereço não será apresentado para mais ninguem
                     !</small>
+                <span ng-show="formulario.logradouro.$touched && formulario.logradouro.$invalid"
+                    class="form-control alert-danger">
+                    logradouro obrigatório
+                </span>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Bairro</label>
-                <input type="text" ng-model="usuario.bairro" class="form-control" placeholder="Rio Grande">
+                <input name="bairro" type="text" ng-model="usuario.bairro" class="form-control" placeholder="Rio Grande"
+                    required>
                 <small id="emailHelp" class="form-text text-muted">Nos não compartilharemos seus dados.</small>
+                <span ng-show="formulario.bairro.$touched && formulario.bairro.$invalid"
+                    class="form-control alert-danger">
+                    bairro obrigatório
+                </span>
             </div>
 
             <div class="form-group">

@@ -174,6 +174,49 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+    .factory('cadastroDeEndereco', (recursoEndereco, $q, $rootScope) => {
+        // criar objeto
+        let servico = {};
+
+        let evento = 'endereçoCadastrado';
+        // // criacao de cadastro
+        servico.cadastrar = (endereco) => {
+            //criacao de promisses
+            return $q(function (resolve, reject) {
+                //caso existir esse id ele ira atualizar as informações 
+                if (endereco.codigo) {
+                    recursoEndereco.update({ usuarioId: endereco.codigo }, endereco, function () {
+                        $rootScope.$broadcast(evento);
+                        resolve({
+                            mensagem: 'endereco: atualizado com sucesso!',
+                            inclusao: false
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel alterar o endereco ' + endereco.logradouro
+                        });
+                    });
+                }
+                //se nao existir ele ira criar uma nova informação de livro no banco 
+                else {
+                    recursoEndereco.save(endereco, function () {
+                        $rootScope.$broadcast(evento);
+                        resolve({
+                            mensagem: 'endereco Incluido com sucesso ',
+                            inclusao: true
+                        });
+                    }, function (error) {
+                        console.log(error);
+                        reject({
+                            mensagem: 'Não foi possivel cadastrar a endereco ' + endereco.logradouro
+                        });
+                    })
+                }
+            })
+        }
+        return servico;
+    })
     .factory('recursoCity', function ($resource, $rootScope) {
         return $resource($rootScope.api + '/cidade/:parametro', null, {
             update: {
