@@ -20,6 +20,26 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
         if (results.idEndereco == null) {
 
             // cadastroDeEndereco.cadastrar()
+            $scope.submeter = (usuario) => {
+                $http.post($rootScope.api + '/endereco/usuario/' + recursoLogin.userCode, usuario)
+                    .then(result => {
+                        const mensagem = result.data.success;
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Endereço',
+                            text: mensagem,
+                        })
+                    })
+                    .catch(error => {
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro',
+                            text: 'Favor Altere algum dado e tente Novamente!',
+                        })
+                        console.log(error)
+                    })
+            }
         }
         else {
             //capturando endereco
