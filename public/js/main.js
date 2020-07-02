@@ -50,7 +50,7 @@ angular.module('ecothink', ['minhasDiretivas', 'ngRoute', 'meusServicos', 'ui.ma
             templateUrl: 'partials/criarEvento2.html',
             controller: 'CriarEventosController'
         });
-        $routeProvider.when('/user/editarevento', {
+        $routeProvider.when('/user/editarevento/:eventodId', {
             templateUrl: 'partials/editarEvento.html',
             controller: 'EditarEventosController'
         });

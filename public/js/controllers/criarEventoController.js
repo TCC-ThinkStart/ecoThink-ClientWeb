@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EditarEventosController', function ($scope, $rootScope, $http, recursoLogin, cadastroDeEventos) {
+angular.module('ecothink').controller('EditarEventosController', function ($scope, $rootScope, $http, recursoLogin, recursoCity, cadastroDeEventos) {
     recursoLogin.verify;
     recursoLogin.setProfile;
     $scope.PreviewImage = $rootScope.api + '/' + recursoLogin.getProfile;
@@ -81,7 +81,5 @@ angular.module('ecothink').controller('EditarEventosController', function ($scop
 
 
     //chamando todas as cidades de SP
-    $http.get($rootScope.api + '/cidade')
-        .then(results => { $scope.municipios = results.data })
-        .catch(error => console.error(error))
+    recursoCity.query((results) => $scope.municipios = results)
 });

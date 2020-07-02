@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location, $interval, recursoLogin, recursoFoto, recursoUser, recursoEndereco, $cookies) {
+angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location, $interval, recursoLogin, recursoFoto, recursoUser, recursoEndereco, recursoCity, $cookies) {
 
     recursoLogin.verify;
     //verificando se foto de perfil foi atualizada
@@ -29,5 +29,9 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
 
     $scope.userName = localStorage.getItem('userName')
 
+
+    $http.get($rootScope.api + '/evento/usuario/' + recursoLogin.userCode)
+        .then(result => $scope.eventos = result.data)
+        .catch(error => console.error)
 
 });

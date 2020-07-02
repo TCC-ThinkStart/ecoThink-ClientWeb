@@ -48,7 +48,7 @@
                 <label for="staticEmail" class="col-md-2 col-12 col-form-label"><i class="fas fa-calendar"></i>Nome
                     :</label>
                 <div class="col-md-10 col-12">
-                    <input type="text" ng-model="event.nome" class="form-control-plaintext-dark" id="staticEmail"
+                    <input type="text" ng-model="event.nome" class="form-control" id="staticEmail"
                         placeholder="Google Meat and Greeat">
                 </div>
             </div>
@@ -78,11 +78,11 @@
                     Data Inicio</label>
                 <div class="col-md-5 col-12">
                     <input type="text" ng-model="event.dataInicio" ui-mask="99/99/9999" ui-mask-placeholder
-                        class="form-control-plaintext-dark" class="form-control-plaintext-dark" id="inputPassword">
+                        class="form-control" class="form-control" id="inputPassword">
                 </div>
                 <div class="col-md-5 col-12">
                     <input type="text" ng-model="event.dataFinal" ui-mask="99/99/9999" ui-mask-placeholder
-                        class="form-control-plaintext-dark" id="inputPassword">
+                        class="form-control" id="inputPassword">
                 </div>
             </div>
             <div class="form-group row">
@@ -91,8 +91,7 @@
                     Descrição:
                 </label>
                 <div class="col-md-10 col-12">
-                    <textarea ng-model="event.descricao" class="form-control-plaintext-dark"
-                        placeholder="Descricao do Evento">
+                    <textarea ng-model="event.descricao" class="form-control" placeholder="Descricao do Evento">
                     </textarea>
                 </div>
             </div>
@@ -100,7 +99,7 @@
             <!-- Eventos -->
             <div class="row">
                 <div class="col-md-12 mb-5">
-                    <h3 class="text-center">Cadastre o Endereço</h3>
+                    <h3 class="text-center">Edite o Endereço</h3>
                 </div>
             </div>
             <div class="form-group row">
@@ -109,26 +108,26 @@
                     Nome da Rua:
                 </label>
                 <div class="col-md-8 col-8">
-                    <input type="text" ng-model="event.logradouro" class="form-control-plaintext-dark"
-                        id="inputPassword" placeholder="R. Das Palmeiras">
+                    <input type="text" ng-model="event.logradouro" class="form-control" id="inputPassword"
+                        placeholder="R. Das Palmeiras">
                 </div>
                 <div class="col-md-2 col-4">
-                    <input type="number" ng-model="event.numero" class="form-control-plaintext-dark" placeholder="Nº">
+                    <input type="number" ng-model="event.numero" class="form-control" placeholder="Nº">
                 </div>
                 <label for="inputPassword" class="col-md-2 col-12 col-form-label">
                     <i class="fas fa-directions"></i>
                     CEP:
                 </label>
                 <div class="col-md-10  col-12">
-                    <input type="text" ng-model="event.cep" ui-mask="99999-999" ui-mask-placeholder
-                        class="form-control-plaintext-dark" id="inputPassword">
+                    <input type="text" ng-model="event.cep" ui-mask="99999-999" ui-mask-placeholder class="form-control"
+                        id="inputPassword">
                 </div>
                 <label for="inputPassword" class="col-md-2 col-12 col-form-label">
                     <i class="fas fa-map-signs"></i>
                     Bairro:
                 </label>
                 <div class="col-md-10 col-12">
-                    <input type="text" ng-model="event.bairro" placeholder="Centro" class="form-control-plaintext-dark"
+                    <input type="text" ng-model="event.bairro" placeholder="Centro" class="form-control"
                         id="inputPassword">
                 </div>
 
@@ -139,17 +138,10 @@
 
                 <div class="col-md-10 col-12">
                     <select ng-options="x.nome for x in municipios" ng-model="event.cidade"
-                        class="form-control-plaintext-dark"></select>
+                        class="form-control"></select>
                 </div>
             </div>
-            <div class="form-group  mb-5 row">
-                <div class="col-md-6 col-6 mb-5">
-                    <button class="btn btn-lg btn-block btn-outline-dark">Cancelar</button>
-                </div>
-                <div class="col-md-6 col-6 mb-5">
-                    <button class="btn btn-lg  btn-block btn-outline-danger" ng-click="submit(event)">Enviar</button>
-                </div>
-            </div>
+
         </form>
     </div>
 </div>
