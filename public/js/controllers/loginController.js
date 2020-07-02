@@ -41,7 +41,7 @@ angular.module('ecothink').controller('LoginController', function ($scope, $root
                     })
 
                 }
-                $location.path('user/perfil')
+                location.href = 'user/perfil'
 
 
 

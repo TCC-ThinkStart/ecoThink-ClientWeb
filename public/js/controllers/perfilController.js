@@ -34,4 +34,10 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
         .then(result => $scope.eventos = result.data)
         .catch(error => console.error)
 
+    $scope.enviar = (x) => {
+        console.log(x)
+        console.log(x.codigo)
+        $location.path('user/editarevento/' + x.codigo)
+    }
+
 });

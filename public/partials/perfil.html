@@ -88,13 +88,14 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <select ng-options="x.nome for x in eventos" ng-model="pesquisar.cidade"
-                        ng-change="pesquisarCity(pesquisar)" class="custom-select custom-select mb-3"></select>
+                    <select ng-options="x.nome for x in eventos" ng-model="pesquisar"
+                        class="custom-select custom-select mb-3"></select>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" ng-click="enviar(pesquisar)" data-dismiss="modal"
+                    aria-label="Close">Salvar</button>
             </div>
         </div>
     </div>
