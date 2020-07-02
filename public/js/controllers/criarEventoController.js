@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EditarEventosController', function ($routeParams, $scope, $rootScope, $http, recursoLogin, recursoCity, cadastroDeEventos, recursoEvento) {
+angular.module('ecothink').controller('EditarEventosController', function ($routeParams, $scope, $rootScope, $http, recursoLogin, recursoCity, cadastroDeEventos, recursoEndereco, recursoEvento) {
     recursoLogin.verify;
     // recursoLogin.setProfile;
 
@@ -12,6 +12,12 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
         //apos isso armazenamos um resultado
         recursoEvento.get({ eventoId: $routeParams.eventoId }, (results) => {
             $scope.event = results
+            recursoEndereco.get({ parametro: $scope.event.idEndereco }, (enderecos) => {
+                $scope.event.cep = enderecos.cep
+                $scope.event.logradouro = enderecos.logradouro
+                $scope.event.bairro = enderecos.bairro
+                $scope.event.numero = enderecos.numero
+            })
         })
 
         $scope.SelectFile = (e) => {
