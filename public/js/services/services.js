@@ -59,6 +59,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             }
         });
     })
+
     .factory('cadastroDeUsuario', (recursoUser, $q, $rootScope) => {
         // criar objeto
         let servico = {};

@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location, $interval, recursoLogin, recursoFoto, recursoEndereco, $cookies) {
+angular.module('ecothink').controller('PerfilController', function ($scope, $rootScope, $http, $location, $interval, recursoLogin, recursoFoto, recursoUser, recursoEndereco, $cookies) {
 
     recursoLogin.verify;
     //verificando se foto de perfil foi atualizada
@@ -8,6 +8,9 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
     })
     recursoEndereco.get({ parametro: recursoLogin.userCode }, (endereco) => {
         $scope.endereco = endereco.logradouro + ',' + endereco.numero
+    })
+    recursoUser.get({ usuarioId: recursoLogin.userCode }, (results) => {
+        $scope.nome = results.nome
     })
 
     //https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png'
