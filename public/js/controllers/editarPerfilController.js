@@ -7,6 +7,8 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
     $scope.nome = recursoLogin.getName;
 
 
+
+
     $scope.SelectFile = (e) => {
 
         const reader = new FileReader();
@@ -18,7 +20,7 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
                 $scope.PreviewImage = e.target.result;
                 $scope.$apply();
                 $scope.adicionaImagem = true;
-                console.log
+
             } else {
                 alert('favor insira uma imagem')
             }
@@ -55,18 +57,13 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
 
             usuario.foto = null
         }
-        cadastroDeUsuario.cadastrar(usuario)
-            .then(results => {
-                $scope.mensagem = results.mensagem;
-                const mensagem = results.mensagem;
-                Swal.fire({
-                    title: 'Usuario',
-                    text: mensagem,
-                    icon: 'success',
-                })
-                console.log(results)
-            })
-            .catch(error => console.warn(error))
         console.log(usuario)
+        const auth = localStorage.getItem('auth')
+        if (auth == 'ADM') {
+
+        }
+        else if (auth == 'USU') {
+
+        }
     }
 });

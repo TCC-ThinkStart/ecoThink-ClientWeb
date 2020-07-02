@@ -1,5 +1,8 @@
 angular.module('ecothink').controller('DescobrirController', function ($scope, $http, recursoLogin, recursoEvento, $rootScope) {
     recursoLogin.verify;
+    $rootScope.isUser = true;
+
+    $rootScope.isLogin = false;
 
     $http.get($rootScope.api + '/evento?random')
         .then(response => {
