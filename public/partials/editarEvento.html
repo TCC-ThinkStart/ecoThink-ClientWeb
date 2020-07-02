@@ -1,10 +1,21 @@
-<div class="row">
-    <div class="col-sm-12  text-center  mb-2 ">
+<!-- icones e legenda -->
+<div class="row p-3">
+    <div class="col-sm-12 legenda-perfil animated  bounceInLeft delay-1s">
         <div class="row">
-            <div class="col-12 bg-darkMode mb-3">
-                <h3 class="h3 ">Criar Evento</h3>
+            <div class="col-2 icone-voltar">
+                <a href="javascript:history.back()"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="col-8 legenda text-center">
+                <h4 class="h4">Editar Evento</h4>
+            </div>
+            <div class="col-2 icone-config icone-editarEndereco">
+                <a href="#" ng-click="submeter(usuario)" ng-if="validacao(usuario)"><i class="fas fa-check"></i></a>
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12  text-center  mb-2 ">
         <form novalidate encType="multipart/form-data">
             <div class="row">
                 <div class="col-md-4 offset-md-1 col-12 mb-5">

@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('CriarEventos2Controller', function ($scope, $rootScope, $http, recursoLogin, cadastroDeEventos) {
+angular.module('ecothink').controller('EditarEventosController', function ($scope, $rootScope, $http, recursoLogin, cadastroDeEventos) {
     recursoLogin.verify;
     recursoLogin.setProfile;
     $scope.PreviewImage = $rootScope.api + '/' + recursoLogin.getProfile;
@@ -6,7 +6,7 @@ angular.module('ecothink').controller('CriarEventos2Controller', function ($scop
 
     $rootScope.isLogin = false;
 
-    $rootScope.isDark = true;
+
 
     $scope.SelectFile = (e) => {
         const reader = new FileReader();
