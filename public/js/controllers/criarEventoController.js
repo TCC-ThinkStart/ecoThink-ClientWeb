@@ -12,12 +12,7 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
         //apos isso armazenamos um resultado
         recursoEvento.get({ eventoId: $routeParams.eventoId }, (results) => {
             $scope.event = results
-            recursoEndereco.get({ parametro: $scope.event.idEndereco }, (enderecos) => {
-                $scope.event.cep = enderecos.cep
-                $scope.event.logradouro = enderecos.logradouro
-                $scope.event.bairro = enderecos.bairro
-                $scope.event.numero = enderecos.numero
-            })
+
         })
 
         $scope.SelectFile = (e) => {
@@ -40,25 +35,7 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
 
         };
         $scope.submit = (event) => {
-            //arrumar data
-            const datainit = event.dataInicio;
-            const diainit = datainit.substr(0, 2);
-            const mesinit = datainit.substr(2, 2);
-            const anoinit = datainit.substr(4, 4);
-            const dataFormatadainit = anoinit + "-" + mesinit + "-" + diainit;
-            event.dataInicio = dataFormatadainit;
-            //
-            const dataEnd = event.dataFinal;
-            const diaEnd = dataEnd.substr(0, 2);
-            const mesEnd = dataEnd.substr(2, 2);
-            const anoEnd = dataEnd.substr(4, 4);
-            const dataFormatadaEnd = anoEnd + "-" + mesEnd + "-" + diaEnd;
-            event.dataFinal = dataFormatadaEnd;
-            event.idOrganizador = parseInt(recursoLogin.userCode);
-            event.idCidade = event['cidade'].codigo
-            event['cidade'] = null
-
-
+            console.log(event)
             cadastroDeEventos.cadastrar(event)
                 .then(results => {
                     console.log(results)
@@ -70,17 +47,15 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
                         icon: 'success',
                     })
                     const codeEvent = results.codigo;
-                    event.foto = { base64: $scope.PreviewImage }
-                    $http.post('/foto/usuario/' + localStorage.getItem('code') + '/evento/' + codeEvent, event.foto)
-                        .then(result => {
-                            console.log(result)
-                        })
-                        .catch(error => {
-                            console.error(error)
-                        })
+
                 })
                 .catch(error => {
                     $scope.mensagem = error.mensagem;
+                    Swal.fire({
+                        title: 'Evento',
+                        text: $scope.mensagem,
+                        icon: 'error',
+                    })
                     console.log(error)
                 })
 

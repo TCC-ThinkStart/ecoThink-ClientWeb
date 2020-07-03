@@ -249,7 +249,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
             return $q(function (resolve, reject) {
                 //caso existir esse id ele ira atualizar as informações 
                 if (evento.codigo) {
-                    recursoEvento.update({ id: evento.codigo }, evento, function () {
+                    recursoEvento.update({ eventoId: evento.codigo }, evento, function () {
                         resolve({
                             mensagem: 'evento: ' + evento.nome + ' atualizado com sucesso!',
                             inclusao: false,

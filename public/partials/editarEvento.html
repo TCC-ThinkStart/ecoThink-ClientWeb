@@ -9,7 +9,7 @@
                 <h4 class="h4">Editar Evento</h4>
             </div>
             <div class="col-2 icone-config icone-editarEndereco">
-                <a href="#" ng-click="submeter(usuario)"><i class="fas fa-check"></i></a>
+                <a href="#" ng-click="submit(event)"><i class="fas fa-check"></i></a>
             </div>
         </div>
     </div>
@@ -25,21 +25,7 @@
                     <div class="text-group">
                         <h5 class="display-5 text-left mb-5">{{event.nome}}</h5>
 
-                        <div class="form-group mb-5 row">
-                            <div class="row">
-                                <div class="col-sm-12 col-12 col-md-6 mb-4">
-                                    <label class="custom-file-label-dark"> <i class="far fa-image"></i> Escolha uma
-                                        Foto</label>
-                                    <input type="file" accept='image/*' ng-model="event.img" name="eventImg"
-                                        onchange="angular.element(this).scope().SelectFile(event)"
-                                        class="custom-file-input">
-                                </div>
-                                <div class="col-sm-12 col-12 col-md-6">
-                                    <label class="custom-file-label-dark" ng-click="imgRemove()">
-                                        <i class="far fa-images"></i> Remover Foto</label>
-                                </div>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
@@ -86,51 +72,6 @@
                 </div>
             </div>
 
-            <!-- Eventos -->
-            <div class="row">
-                <div class="col-md-12 mb-5">
-                    <h3 class="text-center">Edite o Endereço</h3>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputPassword" class="col-md-2 col-12 col-form-label">
-                    <i class="fas fa-map"></i>
-                    Nome da Rua:
-                </label>
-                <div class="col-md-8 col-8">
-                    <input type="text" ng-model="event.logradouro" class="form-control" id="inputPassword"
-                        placeholder="R. Das Palmeiras">
-                </div>
-                <div class="col-md-2 col-4">
-                    <input type="number" ng-model="event.numero" class="form-control" placeholder="Nº">
-                </div>
-                <label for="inputPassword" class="col-md-2 col-12 col-form-label">
-                    <i class="fas fa-directions"></i>
-                    CEP:
-                </label>
-                <div class="col-md-10  col-12">
-                    <input type="text" ng-model="event.cep" ui-mask="99999-999" ui-mask-placeholder class="form-control"
-                        id="inputPassword">
-                </div>
-                <label for="inputPassword" class="col-md-2 col-12 col-form-label">
-                    <i class="fas fa-map-signs"></i>
-                    Bairro:
-                </label>
-                <div class="col-md-10 col-12">
-                    <input type="text" ng-model="event.bairro" placeholder="Centro" class="form-control"
-                        id="inputPassword">
-                </div>
-
-                <label for="inputPassword" class="col-md-2 col-12 col-form-label">
-                    <i class="fas fa-building"></i>
-                    Cidade:
-                </label>
-
-                <div class="col-md-10 col-12">
-                    <select ng-options="x.nome for x in municipios" ng-model="event.cidade"
-                        class="form-control"></select>
-                </div>
-            </div>
 
         </form>
     </div>
