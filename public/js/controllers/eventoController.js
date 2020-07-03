@@ -11,20 +11,23 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
 
     if ($routeParams.eventoId) {
         //apos isso armazenamos um resultado
-        recursoEvento.get({ eventoId: $routeParams.eventoId }, (results) => {
-            console.log(results)
-            $scope.eventoUnico = results;
-            //conversao para endereço
-            recursoEndereco.get({ parametro: $scope.eventoUnico.idEndereco }, (enderecos) => {
+        $http.get($rootScope.api + '/evento/' + $routeParams.eventoId)
+            .then((results) => {
+                console.log(results.headers())
+                console.log(results)
+                $scope.eventoUnico = results.data;
+                //conversao para endereço
+                recursoEndereco.get({ parametro: $scope.eventoUnico.idEndereco }, (enderecos) => {
 
-                $scope.eventoUnico.endereco = enderecos.logradouro + "," + enderecos.bairro + "," + enderecos.numero;
+                    $scope.eventoUnico.endereco = enderecos.logradouro + "," + enderecos.bairro + "," + enderecos.numero;
+                })
+                recursoUser.get({ usuarioId: $scope.eventoUnico.idOrganizador }, (usuario) => {
+
+                    $scope.eventoUnico.usuario = usuario.nome;
+                })
+
             })
-            recursoUser.get({ usuarioId: $scope.eventoUnico.idOrganizador }, (usuario) => {
-
-                $scope.eventoUnico.usuario = usuario.nome;
-            })
-
-        }, (error) => console.log(error));
+            .catch((error) => console.log(error));
 
         $http.get($rootScope.api + '/foto/evento/' + $routeParams.eventoId)
             .then(results => {

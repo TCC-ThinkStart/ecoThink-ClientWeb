@@ -1,5 +1,5 @@
-angular.module('ecothink').controller('ConfirmarCadastroController', function ($scope, $rootScope, $http, $location, recursoLogin) {
-
+angular.module('ecothink').controller('ConfirmarCadastroController', function ($scope, $rootScope, $http, $location) {
+    alert('kdfmdkmfk')
     $rootScope.isLogin = true;
     $rootScope.isUser = false;
 

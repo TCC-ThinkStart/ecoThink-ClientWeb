@@ -3,10 +3,11 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
         const routes = {
             register: '/home/register',
             login: '/home/login',
-            welcome: '/home'
+            welcome: '/home',
+            confirm: '/home/confirm'
         }
         function verify() {
-            if ($location.path() != routes.register && $location.path() != routes.login && $location.path() != routes.welcome) {
+            if ($location.path() != routes.register && $location.path() != routes.login && $location.path() != routes.confirm && $location.path() != routes.welcome) {
                 // verificar se o cookie foi inserido , caso nao , redirecionar para pagina de login
 
                 if ($cookies.get('x-acess-token')) {

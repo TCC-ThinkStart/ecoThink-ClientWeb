@@ -19,7 +19,7 @@ angular.module('ecothink').controller('CadastroController', function ($scope, $h
     }
     $scope.submeter = (usuario) => {
         console.log(usuario)
-        $http.post('http://localhost:4200/login', usuario)
+        $http.post('http://localhost:4200/usuario', usuario)
             .then(results => { console.log(results.data) })
             .catch(error => {
                 console.log(error)
