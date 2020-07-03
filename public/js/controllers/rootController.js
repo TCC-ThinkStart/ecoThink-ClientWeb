@@ -8,5 +8,5 @@ angular.module('ecothink').run(function ($rootScope, $http, recursoLogin) {
     $rootScope.api = "http://ec2-34-207-155-158.compute-1.amazonaws.com";
 
 
-    $http.defaults.headers.common.Authorization = 'Bearer ' + recursoLogin.token;
+    //$http.defaults.headers.common.Authorization = 'Bearer ' + recursoLogin.token;
 });
