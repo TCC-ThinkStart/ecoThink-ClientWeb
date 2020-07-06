@@ -14,7 +14,7 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
         $http.get($rootScope.api + '/evento/' + $routeParams.eventoId)
             .then((results) => {
                 $scope.inscritos = results.headers('x-total-subscribers-count')
-                console.log(results)
+
                 $scope.eventoUnico = results.data;
                 //conversao para endereço
                 recursoEndereco.get({ parametro: $scope.eventoUnico.idEndereco }, (enderecos) => {
@@ -46,7 +46,24 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
 
 
     }
+    $http.get($rootScope.api + '/evento/usuario/' + recursoLogin.userCode)
+        .then(mostrarEvento => {
 
+            if (mostrarEvento.data.length >= 0) {
+
+                for (let c = 0; c <= mostrarEvento.data.length; c++) {
+
+                    if (mostrarEvento.data[c].codigo == $routeParams.eventoId) {
+                        console.log('Evento -> evento encontrado, usuario inscrito')
+                        console.log(mostrarEvento.data[c])
+                    }
+                }
+            } else {
+                console.log('nao tem evento')
+            }
+
+        })
+        .catch(erroEvento => console.log(erroEvento))
     $scope.inscrever = () => {
         $http.post($rootScope.api + '/evento/' + $routeParams.eventoId + '/usuario/' + recursoLogin.userCode)
             .then(results => {
