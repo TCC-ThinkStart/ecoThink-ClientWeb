@@ -13,7 +13,7 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
         //apos isso armazenamos um resultado
         $http.get($rootScope.api + '/evento/' + $routeParams.eventoId)
             .then((results) => {
-                console.log(results.headers())
+                $scope.inscritos = results.headers('x-total-subscribers-count')
                 console.log(results)
                 $scope.eventoUnico = results.data;
                 //conversao para endereço
@@ -47,4 +47,24 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
 
     }
 
+    $scope.inscrever = () => {
+        $http.post($rootScope.api + '/evento/' + $routeParams.eventoId + '/usuario/' + recursoLogin.userCode)
+            .then(results => {
+                const mensagem = results.data.success;
+                Swal.fire({
+                    title: 'Evento',
+                    text: mensagem,
+                    icon: 'success',
+                })
+            })
+            .catch(error => {
+                $scope.mensagem = error.data.error;
+                Swal.fire({
+                    title: 'Evento',
+                    text: $scope.mensagem,
+                    icon: 'error',
+                })
+                console.warn(error)
+            })
+    }
 })

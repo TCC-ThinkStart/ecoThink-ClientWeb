@@ -21,6 +21,10 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
 
             // cadastroDeEndereco.cadastrar()
             $scope.submeter = (usuario) => {
+                console.log(usuario)
+                usuario.idCidade = usuario['cidade'].codigo
+                usuario.cidade = null
+
                 $http.post($rootScope.api + '/endereco/usuario/' + recursoLogin.userCode, usuario)
                     .then(result => {
                         const mensagem = result.data.success;
