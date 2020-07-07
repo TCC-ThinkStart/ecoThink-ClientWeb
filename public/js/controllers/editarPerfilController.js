@@ -50,7 +50,7 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
                         text: mensagem,
                         icon: 'success',
                     })
-                    console.log(results)
+
                 })
                 .catch(error => {
                     $scope.mensagem = error.mensagem;

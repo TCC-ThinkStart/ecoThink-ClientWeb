@@ -23,11 +23,11 @@ angular.module('ecothink').controller('UsuarioController', function ($scope, $ro
                     $scope.titulos = results.data
                     //foto desse evento
                     for (let c = 0; c <= results.data.length; c++) {
-                        $http.get($rootScope.api + '/foto/evento/' + results.data[c]['codigo'])
+                        $http.get($rootScope.api + '/foto/evento/' + results.data[c].codigo)
                             .then(results => {
                                 if (results.data.length == 1) {
                                     $scope.titulos[c].img = $rootScope.api + '/' + results.data[0].url
-                                    console.log($scope.titulos)
+
                                 }
 
                                 //evento tem foto
