@@ -46,18 +46,21 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
 
 
     }
-    $http.get($rootScope.api + '/evento/usuario/' + recursoLogin.userCode)
+    $http.get($rootScope.api + '/evento/usuario/' + recursoLogin.userCode + '/inscrito')
         .then(mostrarEvento => {
 
             if (mostrarEvento.data.length > 0) {
 
                 for (let c = 0; c <= mostrarEvento.data.length; c++) {
 
+                    console.log(mostrarEvento.data[c].codigo)
                     if (mostrarEvento.data[c].codigo == $routeParams.eventoId) {
                         console.log('Evento -> evento encontrado, usuario inscrito')
-                        $scope.inscrito = true
-                    } else {
                         $scope.inscrito = false
+                        c = mostrarEvento.data.length
+                    } else {
+                        console.log('Evento -> evento nao encontrado, usuario nao inscrito')
+                        $scope.inscrito = true
                     }
                 }
             } else {
