@@ -70,6 +70,10 @@ angular.module('ecothink', ['minhasDiretivas', 'ngRoute', 'meusServicos', 'ui.ma
             templateUrl: 'partials/editarEndereco.html',
             controller: 'EditarEnderecoController'
         });
+        $routeProvider.when('/user/seusEventos', {
+            templateUrl: 'partials/seusEventos.html',
+            controller: 'EditarEnderecoController'
+        });
         //obrigando o usuario a ser redirecionado para '/'
         $routeProvider.otherwise({ redirectTo: '/home' });
     });

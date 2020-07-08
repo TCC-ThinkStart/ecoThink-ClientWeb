@@ -74,6 +74,8 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
         $http.post($rootScope.api + '/evento/' + $routeParams.eventoId + '/usuario/' + recursoLogin.userCode)
             .then(results => {
                 const mensagem = results.data.success;
+                $scope.inscrito = false
+                $scope.inscritos++
                 Swal.fire({
                     title: 'Evento',
                     text: mensagem,
