@@ -1,6 +1,6 @@
 <!-- icones e legenda -->
 <div class="row p-3">
-    <div class="col-sm-12 legenda-perfil animated  bounceInLeft delay-1s slow">
+    <div class="col-sm-12 legenda-perfil animated  bounceInLeft">
         <div class="row">
             <div class="col-2 icone-voltar">
                 <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
@@ -15,9 +15,14 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-12">
+        <h4 class="font-weight-light text-truncate text-center animated bounceInRight" ng-hide="eventos.length"> Sem
+            Resultados No
+            Momento</h4>
+    </div>
     <div class="col-12 col-md-8 offset-md-2">
         <div class="row">
-            <div class="col-12 col-md-6 evento evento-inicial mb-5 animated  bounceInLeft delay-1s "
+            <div class="col-12 col-md-6 evento evento-inicial mb-5 animated  bounceInLeft  "
                 ng-repeat="event in eventos">
                 <div class="card pesquisar">
                     <img ng-src="{{event.imagem || 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png'}}"
