@@ -30,4 +30,22 @@ angular.module('ecothink').controller('SeusEventosController', function ($scope,
             console.log($scope.eventos)
         })
         .catch(error => console.error(error))
+
+
+    $scope.unsubscribe = (codigo) => {
+
+        $http.delete($rootScope.api + '/evento/' + codigo + '/usuario/' + recursoLogin.userCode)
+            .then(desinscrever => {
+                const mensagem = desinscrever.data.success;
+                Swal.fire({
+                    title: 'Evento',
+                    text: mensagem,
+                    icon: 'success',
+                })
+                let indiceDaFoto = $scope.eventos.indexOf(codigo);
+                $scope.eventos.splice(indiceDaFoto, 1);
+
+            })
+            .catch(erro => console.warn(erro.data))
+    }
 })

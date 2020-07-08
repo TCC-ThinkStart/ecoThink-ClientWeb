@@ -9,15 +9,15 @@
                 <h3 class="h3">Seus Eventos</h3>
             </div>
             <div class="col-2 icone-config">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-cog text-primary"></i>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-12 col-md-8 offset-md-2">
         <div class="row">
-            <div class="col-md-6 evento evento-inicial mb-5 animated  bounceInLeft delay-1s "
+            <div class="col-12 col-md-6 evento evento-inicial mb-5 animated  bounceInLeft delay-1s "
                 ng-repeat="event in eventos">
                 <div class="card pesquisar">
                     <img ng-src="{{event.imagem || 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png'}}"
@@ -29,8 +29,14 @@
                         <p class="card-text resultDesc">{{event.descricao}}</p>
                     </div>
                     <div class="card-footer text-muted bg-white">
-                        <a href="/user/evento/{{result.codigo}}" class="btn btn-light btn-block" data-toggle="tooltip"
-                            data-placement="top" title="Veja Mais"><i class="fas fa-angle-double-down"></i></a>
+                        <a href="/user/evento/{{event.codigo}}" class="btn btn-light btn-block text-success ">
+                            Ver Mais
+                            <i class="fas fa-eye text-success"></i>
+                        </a>
+                        <a class="btn btn-light btn-block  float-right" ng-click="unsubscribe(event.codigo)">
+                            Desinscrever
+                            <i class="fas fa-eye-slash text-primary"></i>
+                        </a>
                     </div>
                 </div>
             </div>
