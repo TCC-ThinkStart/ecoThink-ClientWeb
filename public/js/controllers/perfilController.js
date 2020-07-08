@@ -2,10 +2,12 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
 
     recursoLogin.verify;
     //verificando se foto de perfil foi atualizada
-    recursoFoto.get({ usuarioId: localStorage.getItem('codeProfile') }, (results) => {
-        $cookies.put('x-access-user', window.btoa(results.url) + '.' + window.btoa(results.codigo))
-        $scope.imageProfile = $rootScope.api + '/' + recursoLogin.getProfile;
-    }, (error) => console.log(error))
+    recursoUser.get({ usuarioId: recursoLogin.userCode }, (usuario) => {
+        // capturando o id de foto de perfil para mostrar
+        recursoFoto.get({ usuarioId: usuario.idFotoPerfil }, (foto) => {
+            $scope.imageProfile = $rootScope.api + '/' + foto.url
+        })
+    })
     recursoEndereco.get({ parametro: recursoLogin.userCode }, (endereco) => {
         $scope.endereco = endereco.logradouro + ',' + endereco.numero
     })
