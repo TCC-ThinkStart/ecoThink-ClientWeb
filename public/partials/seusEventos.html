@@ -14,11 +14,28 @@
         </div>
     </div>
 </div>
-<!-- <div class="row">
-    <div class="col-12 offset-1 col-md-6 acoes-recentes animated pulse delay-1s fast"
-        style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url({{aleatorio[5].img}});">
-        <a href="user/evento" class="stretched-link text-white">
-            <h6 class="text-center">{{aleatorio[5].nome}}</h6>
-        </a>
+<div class="row">
+    <div class="col-8 offset-2">
+        <div class="row">
+            <div class="col-md-6 evento evento-inicial mb-5 animated  bounceInLeft delay-1s "
+                ng-repeat="event in eventos">
+                <div class="card pesquisar">
+                    <img ng-src="{{event.imagem || 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png'}}"
+                        onerror="angular.element(this).scope().imgError()" class="card-img-top pesquisarImg" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{event.nome}}</h5>
+                        <span class="badge badge-info float-right">{{event.palavra[0].palavra}}</span>
+
+                        <p class="card-text resultDesc">{{event.descricao}}</p>
+                    </div>
+                    <div class="card-footer text-muted bg-white">
+                        <a href="/user/evento/{{result.codigo}}" class="btn btn-light btn-block" data-toggle="tooltip"
+                            data-placement="top" title="Veja Mais"><i class="fas fa-angle-double-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div> -->
+
+
+</div>
