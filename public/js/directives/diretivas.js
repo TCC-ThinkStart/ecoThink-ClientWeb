@@ -33,3 +33,18 @@ angular.module('minhasDiretivas', [])
 
         return ddo;
     })
+    .directive('meuCard', function () {
+
+        let ddo = {};
+
+        ddo.restrict = "AE";
+
+        ddo.scope = {
+            nome: '@',
+            imagem: '@'
+        };
+
+        ddo.templateUrl = 'js/directives/model/meu-card.html'
+
+        return ddo;
+    })
