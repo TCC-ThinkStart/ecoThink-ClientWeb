@@ -39,7 +39,7 @@
     </div>
     <!-- events -->
     <div class="row">
-        <div class="col-12 col-sm-12 mt-3 mb-3">
+        <div class="col-12 col-sm-12 mt-3 mb-5">
             <div class="row">
                 <div class="col-12">
                     <h3 class="h3">Ações Recentes</h3>
@@ -48,36 +48,14 @@
             <div class="row">
                 <h4 class="font-weight-light text-truncate text-center animated bounceInRight" ng-hide="titulos.length">
                     Sem Inscrições em Eventos Sociais No Momento</h4>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-3" ng-repeat="titulo in titulos | limitTo: 3">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-3 mb-5" ng-repeat="titulo in titulos | limitTo: 3">
                     <a href="user/evento/{{titulo.codigo}}">
-                        <div class="card border-0 rounded shadow text-white overflow-hidden">
-                            <img src="{{titulo.img}}"
-                                class="card-img my-auto">
-                            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
-                                <div>
-                                    <h5 class="card-text whitered-bg text-dark">
-                                        {{titulo.nome}}
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
+                        <meu-card nome="{{titulo.nome}}" imagem="{{titulo.img}}"></meu-card>
+
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-sm-12 mt-3 mb-5">
-            <div class="row">
-                <div class="col-12 mb-5">
-                    <h3 class="h3">Descrição</h3>
-                    <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum nostrum ea
-                        dolores, quidem, explicabo aspernatur beatae quod saepe commodi repellat quo aliquam, accusamus
-                        doloribus voluptatibus qui. Id deleniti saepe delectus.Ipsam qui quas, excepturi odit enim
-                        perspiciatis quae quasi dolores, veritatis beatae quaerat cupiditate sequi voluptate tempore eum
-                        ex, aperiam voluptatem! Est ipsam in maiores dolores voluptatibus atque quaerat impedit?</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>

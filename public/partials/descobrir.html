@@ -1,6 +1,6 @@
 <!-- legenda -->
 <div class="row">
-    <div class="col-md-12  mt-3 titulo">
+    <div class="col-md-12  mt-3 titulo animated  bounceInLeft fast">
         <h2 class="h2 text-center">Descobrir</h2>
     </div>
 </div>
@@ -8,18 +8,9 @@
 
     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-3" ng-repeat="evento in aleatorio | limitTo: 9">
         <a href="user/evento/{{evento.codigo}}">
-            <div class="card border-0 rounded shadow text-white overflow-hidden">
-                <img src="{{evento.img}}"
-                    class="card-img my-auto">
-                <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
-                    <div>
-                        <h5 class="card-text whitered-bg text-dark">
-                            {{evento.nome}}
-                        </h5>
-                    </div>
-                </div>
-            </div>
+            <meu-card nome="{{evento.nome}}" imagem="{{evento.img}}"></meu-card>
+
         </a>
     </div>
-    
+
 </div>
