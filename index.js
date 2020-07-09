@@ -1,5 +1,5 @@
 const customExpress = require('./config/customExpress');
-const port = 3001;
+const port = 3000;
 
 const app = customExpress();
     //servidor
