@@ -1,4 +1,4 @@
-angular.module('ecothink').controller('EditarEventosController', function ($routeParams, $scope, $rootScope, $http, recursoLogin, recursoCity, cadastroDeEventos, recursoEndereco, recursoEvento) {
+angular.module('ecothink').controller('EditarEventosController', function ($routeParams, $location, $scope, $rootScope, $http, recursoLogin, recursoCity, cadastroDeEventos, recursoEndereco, recursoEvento) {
     recursoLogin.verify;
     // recursoLogin.setProfile;
 
@@ -69,6 +69,27 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
 
         //chamando todas as cidades de SP
         recursoCity.query((results) => $scope.municipios = results)
+
+        $scope.remover = () => {
+            recursoEvento.delete({ eventoId: $routeParams.eventoId }, (deletar) => {
+                const mensagem = deletar.success;
+                console.log(deletar)
+                Swal.fire({
+                    title: 'Evento',
+                    text: mensagem,
+                    icon: 'success',
+                })
+                $location.path('/user/perfil');
+            }, (error) => {
+                const mensagem = error.data.error;
+                Swal.fire({
+                    title: 'Evento',
+                    text: mensagem,
+                    icon: 'error',
+                })
+            })
+        }
+
     }
 
 
