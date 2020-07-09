@@ -10,3 +10,46 @@
     border-radius: 10px;
     
 }
+a .card {
+    color: black;
+    max-height: 200px;
+}
+
+a .card:hover {
+    transition: all .1s ease-in-out;
+    filter: brightness(97%);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.card-title.card-title-overlay {
+    text-decoration: underline;
+}
+
+.card-text.whitered-bg {
+    display: inline;
+    background-image: linear-gradient(to bottom, white 90%, #7cd956 10%);
+}
+
+.card:hover>img:first-child,
+.card-img:hover {
+    transition: all .1s ease-in-out;
+    filter: brightness(85%);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.eventos-card-row{
+    padding-bottom: 90px;
+}

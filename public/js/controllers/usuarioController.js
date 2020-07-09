@@ -27,10 +27,11 @@ angular.module('ecothink').controller('UsuarioController', function ($scope, $ro
                             .then(results => {
                                 if (results.data.length == 1) {
                                     $scope.titulos[c].img = $rootScope.api + '/' + results.data[0].url
-
+                                //evento tem foto
+                                }else{
+                                    $scope.titulos[c].img = 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png';
                                 }
 
-                                //evento tem foto
 
                             })
                             .catch(error => console.log(error))

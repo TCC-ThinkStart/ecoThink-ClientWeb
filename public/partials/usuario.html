@@ -48,18 +48,21 @@
             <div class="row">
                 <h4 class="font-weight-light text-truncate text-center animated bounceInRight" ng-hide="titulos.length">
                     Sem Inscrições em Eventos Sociais No Momento</h4>
-                <div class="col-10 offset-1 col-md-3 acoes-recentes" ng-repeat="titulo in titulos | limitTo:3 "
-                    style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url({{titulo.img}});">
-                    <h6 class="text-center">{{titulo.nome}}</h6>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-3" ng-repeat="titulo in titulos | limitTo: 3">
+                    <a href="user/evento/{{titulo.codigo}}">
+                        <div class="card border-0 rounded shadow text-white overflow-hidden">
+                            <img src="{{titulo.img}}"
+                                class="card-img my-auto">
+                            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                                <div>
+                                    <h5 class="card-text whitered-bg text-dark">
+                                        {{titulo.nome}}
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <!-- <div class="col-10 offset-1 col-md-3 acoes-recentes"
-                    style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url('https://cloud.estacaonerd.com/wp-content/uploads/2019/08/02135547/cropped-img_banner_evento-1.jpg');">
-                    <h6>Corrida Cartoon from brazil</h6>
-                </div>
-                <div class="col-10 offset-1 col-md-3 acoes-recentes"
-                    style="background: linear-gradient(rgba(99, 99, 99, 0.8), rgba(99, 99, 99, 0.8)),url('https://techcrunch.com/wp-content/uploads/2019/04/IMG_20190409_162653-1.jpg?w=730&crop=1');">
-                    <h6>Google online tech talk session</h6>
-                </div> -->
             </div>
         </div>
     </div>

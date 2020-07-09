@@ -8,9 +8,25 @@ angular.module('ecothink').controller('PerfilController', function ($scope, $roo
             $scope.imageProfile = $rootScope.api + '/' + foto.url
         })
     })
-    recursoEndereco.get({ parametro: recursoLogin.userCode }, (endereco) => {
-        $scope.endereco = endereco.logradouro + ',' + endereco.numero
+
+    $http.get($rootScope.api + '/usuario/' + recursoLogin.userCode)
+    .then(results => {
+        let idEndereco = results.data.idEndereco;
+
+        if(idEndereco){
+            recursoEndereco.get({ parametro: idEndereco }, (endereco) => {
+                $scope.endereco = endereco.logradouro + ',' + endereco.numero
+            })
+        }else{
+            $scope.endereco = "Endereço não cadastrado";
+        }
     })
+    .catch(error => console.log(error));
+
+    // Implementação antiga
+    // recursoEndereco.get({ parametro: recursoLogin.userCode }, (endereco) => {
+    //     $scope.endereco = endereco.logradouro + ',' + endereco.numero
+    // })
     recursoUser.get({ usuarioId: recursoLogin.userCode }, (results) => {
         $scope.nome = results.nome
     }, (error) => console.log(error))

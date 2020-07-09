@@ -15,6 +15,8 @@ angular.module('ecothink').controller('DescobrirController', function ($scope, $
                         if (results.data.length == 1) {
                             console.log(results.data)
                             $scope.aleatorio[c].img = $rootScope.api + '/' + results.data[0].url;
+                        }else{
+                            $scope.aleatorio[c].img = 'https://www.callinvest.com.br/wp-content/uploads/2017/08/indisponivel.png';
                         }
 
                         //evento tem foto
