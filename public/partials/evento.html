@@ -17,8 +17,10 @@
                         <i class="far fa-calendar-alt"></i>
                     </section>
                     <section class="col-10 text">
-                        <h6 class="h6">Sabado, maio 18</h6>
-                        <p class="lead">10:30 - 18:30 AM</p>
+                        <h6 class="h6">{{eventoUnico.dataInicio | date:'dd,MMM'}} -
+                            {{eventoUnico.dataFinal | date:'dd,MMM'}}</h6>
+                        <p class="lead">{{eventoUnico.dataInicio | date:'shortTime'}} -
+                            {{eventoUnico.dataFinal | date:'shortTime'}}</p>
                     </section>
                 </div>
                 <div class="row">
