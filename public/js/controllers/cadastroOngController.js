@@ -25,10 +25,23 @@ angular.module('ecothink').controller('CadastroOngController', function ($scope,
     }
     $scope.submeter = (usuario) => {
         console.log(usuario)
-        $http.post('http://localhost:4200/login', usuario)
-            .then(results => { console.log(results.data) })
-            .catch(error => {
-                console.log(error)
+        $http.post($rootScope.api + '/usuario/organizacao', usuario)
+            .then(results => {
+                const msg = results.data.nome + ' Dados enviados com sucesso,Verifique seu email para ativar o seu cadastro !'
+                Swal.fire({
+                    title: 'Organizador',
+                    text: msg,
+                    icon: 'success',
+                })
+                $location.path('/home/confirm')
+            })
+            .catch(erro => {
+                const msg = erro.data
+                Swal.fire({
+                    title: 'Erro',
+                    text: msg,
+                    icon: 'error',
+                })
             })
     }
 });
