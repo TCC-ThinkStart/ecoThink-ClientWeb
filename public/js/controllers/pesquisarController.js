@@ -12,7 +12,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
         $http.get($rootScope.api + '/evento/pesquisa/' + pesquisa.nome)
             .then(results => {
                 $scope.resultados = results.data
-                console.log(results.data)
+
                 for (let c = 0; c <= results.data.length; c++) {
 
                     $http.get($rootScope.api + '/foto/evento/' + results.data[c].codigo)
@@ -31,7 +31,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
                         .catch(error => console.log(error))
                 }
 
-                console.log(results)
+
             })
             .catch(error => console.warn(error))
     }
@@ -42,7 +42,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
         $http.get($rootScope.api + '/evento/cidade/' + pesquisar.cidade.codigo)
             .then(results => {
                 $scope.resultados = results.data
-                console.log(results.data)
+
                 for (let c = 0; c <= results.data.length; c++) {
 
                     $http.get($rootScope.api + '/foto/evento/' + results.data[c].codigo)
@@ -61,7 +61,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
                         .catch(error => console.log(error))
                 }
 
-                console.log(results)
+
             })
             .catch(error => console.warn(error))
     }
@@ -71,7 +71,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
         $http.get($rootScope.api + '/evento/palavrachave/' + pesquisar.palavrachave.codigo)
             .then(results => {
                 $scope.resultados = results.data
-                console.log(results.data)
+
                 for (let c = 0; c <= results.data.length; c++) {
 
                     $http.get($rootScope.api + '/foto/evento/' + results.data[c].codigo)
@@ -90,7 +90,7 @@ angular.module('ecothink').controller('PesquisarController', function ($rootScop
                         .catch(error => console.log(error))
                 }
 
-                console.log(results)
+
             })
             .catch(error => console.warn(error))
     }

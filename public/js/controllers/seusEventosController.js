@@ -25,9 +25,9 @@ angular.module('ecothink').controller('SeusEventosController', function ($scope,
 
                         }
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => console.warn(error))
             }
-            console.log($scope.eventos)
+
         })
         .catch(error => console.error(error))
 

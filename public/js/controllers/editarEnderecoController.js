@@ -15,13 +15,13 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
 
     //visualizando dados do usuario
     recursoUser.get({ usuarioId: recursoLogin.userCode }, (results) => {
-        console.log(results)
+
         //verificando se o usuario possui endereço
         if (results.idEndereco == null) {
 
             // cadastroDeEndereco.cadastrar()
             $scope.submeter = (usuario) => {
-                console.log(usuario)
+
                 usuario.idCidade = usuario['cidade'].codigo
                 usuario.cidade = null
 
@@ -48,7 +48,7 @@ angular.module('ecothink').controller('EditarEnderecoController', function ($sco
         else {
             //capturando endereco
             recursoEndereco.get({ parametro: results.idEndereco }, (endereco) => {
-                console.log(endereco)
+
                 $scope.usuario = endereco
                 //parametros passados pelo usuario
                 $scope.submeter = (usuario) => {

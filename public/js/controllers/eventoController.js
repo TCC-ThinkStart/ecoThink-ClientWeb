@@ -53,7 +53,7 @@ angular.module('ecothink').controller('EventoController', function ($scope, $rou
 
                 for (let c = 0; c <= mostrarEvento.data.length; c++) {
 
-                    console.log(mostrarEvento.data[c].codigo)
+
                     if (mostrarEvento.data[c].codigo == $routeParams.eventoId) {
                         console.log('Evento -> evento encontrado, usuario inscrito')
                         $scope.inscrito = false

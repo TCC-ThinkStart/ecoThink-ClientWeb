@@ -17,7 +17,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                     $location.path('home/login')
                 }
             } else {
-                console.log('essa rota nao vai aplicar o cookie')
+
             }
 
         }

@@ -24,7 +24,7 @@ angular.module('ecothink').controller('CadastroOngController', function ($scope,
 
     }
     $scope.submeter = (usuario) => {
-        console.log(usuario)
+
         $http.post($rootScope.api + '/usuario/organizacao', usuario)
             .then(results => {
                 const msg = results.data.nome + ' Dados enviados com sucesso,Verifique seu email para ativar o seu cadastro !'

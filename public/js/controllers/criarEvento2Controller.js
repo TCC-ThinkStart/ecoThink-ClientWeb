@@ -73,7 +73,7 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
         $scope.eventoEnviar.idCidade = $scope.evento[1]['cidade'].codigo
         $scope.eventoEnviar['cidade'] = null
 
-        console.log($scope.eventoEnviar)
+
 
         $http.post($rootScope.api + '/evento', $scope.eventoEnviar)
             .then(event => {

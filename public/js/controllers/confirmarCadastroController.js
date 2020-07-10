@@ -6,11 +6,12 @@ angular.module('ecothink').controller('ConfirmarCadastroController', function ($
 
     $scope.submeter = (usuario) => {
 
-        console.log(usuario)
+
         $http.defaults.headers.common.Authorization = 'Bearer ' + usuario.token;
         $http.put($rootScope.api + '/usuario/confirmacao/confirmar', usuario)
             .then(results => {
-                console.log(results)
+
+
                 const mensagem = results.data.success
                 Swal.fire({
                     icon: 'success',
@@ -20,7 +21,7 @@ angular.module('ecothink').controller('ConfirmarCadastroController', function ($
                 })
             })
             .catch(error => {
-                console.log(error)
+
                 const msg = error.data.error
                 Swal.fire({
                     icon: 'error',

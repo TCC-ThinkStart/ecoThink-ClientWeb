@@ -48,10 +48,11 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
 
         };
         $scope.submit = (event) => {
-            console.log(event)
+
             cadastroDeEventos.cadastrar(event)
                 .then(results => {
-                    console.log(results)
+
+
                     $scope.mensagem = results.mensagem;
                     const mensagem = results.mensagem;
                     Swal.fire({
@@ -73,7 +74,7 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
                 })
 
 
-            console.log(event)
+
         }
         $scope.imgRemove = () => {
             $scope.PreviewImage = null;
@@ -86,7 +87,7 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
         $scope.remover = () => {
             recursoEvento.delete({ eventoId: $routeParams.eventoId }, (deletar) => {
                 const mensagem = deletar.success;
-                console.log(deletar)
+
                 Swal.fire({
                     title: 'Evento',
                     text: mensagem,

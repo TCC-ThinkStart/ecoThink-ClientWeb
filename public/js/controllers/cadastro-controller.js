@@ -18,7 +18,7 @@ angular.module('ecothink').controller('CadastroController', function ($scope, $h
 
     }
     $scope.submeter = (usuario) => {
-        console.log(usuario)
+
 
         cadastroDeUsuario.cadastrar(usuario)
             .then(results => {
