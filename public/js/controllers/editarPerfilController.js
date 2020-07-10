@@ -38,27 +38,49 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
         usuario.codigo = localStorage.getItem('code')
 
         if ($scope.adicionaImagem) {
-            usuario.foto = { base64: $scope.PreviewImage, codigo: parseInt(recursoLogin.userCode) }
-
-            cadastroDeFotoPerfil.cadastrar(usuario.foto)
-                .then(results => {
-                    $scope.mensagem = results.mensagem;
-                    const mensagem = results.mensagem;
-                    $scope.$broadcast('fotoPerfilCadastrada');
+            // verificando se foto de perfil foi inserida
+            if (usuario.idFotoPerfil == null) {
+                usuario.foto = { base64: $scope.PreviewImage }
+                recursoFotoUser.save({ usuarioId: usuario.codigo }, usuario.foto, results => {
+                    const mensagem = results.success
                     Swal.fire({
                         title: 'Foto',
                         text: mensagem,
                         icon: 'success',
                     })
-
+                }, error => {
+                    const mensagem = error.error
+                    Swal.fire({
+                        title: 'Foto',
+                        text: mensagem,
+                        icon: 'error',
+                    })
                 })
-                .catch(error => {
-                    $scope.mensagem = error.mensagem;
-                    console.log(error)
-                })
+            } else {
+                usuario.foto = { base64: $scope.PreviewImage, codigo: parseInt(recursoLogin.userCode) }
 
-            usuario.foto = null
+                cadastroDeFotoPerfil.cadastrar(usuario.foto)
+                    .then(results => {
+                        $scope.mensagem = results.mensagem;
+                        const mensagem = results.mensagem;
+                        $scope.$broadcast('fotoPerfilCadastrada');
+                        Swal.fire({
+                            title: 'Foto',
+                            text: mensagem,
+                            icon: 'success',
+                        })
+
+                    })
+                    .catch(error => {
+                        $scope.mensagem = error.mensagem;
+                        console.log(error)
+                    })
+
+                usuario.foto = null
+            }
+
         }
+
         console.log(usuario)
         const auth = localStorage.getItem('auth')
         if (auth == 'ADM') {
