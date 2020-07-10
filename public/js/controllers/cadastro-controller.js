@@ -1,9 +1,9 @@
-angular.module('ecothink').controller('CadastroController', function ($scope, $http, $location, $window) {
+angular.module('ecothink').controller('CadastroController', function ($scope, $http, $location, $window, cadastroDeUsuario) {
     $scope.usuario = {};
     $scope.mensagem = '';
 
     $scope.submitar = (usuario) => {
-        if (usuario.nome && usuario.email && usuario.senha && usuario.confirmar) {
+        if (usuario.nome && usuario.email && usuario.senha && usuario.dataNascimento && usuario.confirmar) {
             if (usuario.senha === usuario.confirmar) {
                 $scope.isValid = true;
 
@@ -19,10 +19,25 @@ angular.module('ecothink').controller('CadastroController', function ($scope, $h
     }
     $scope.submeter = (usuario) => {
         console.log(usuario)
-        $http.post('http://localhost:4200/usuario', usuario)
-            .then(results => { console.log(results.data) })
+
+        cadastroDeUsuario.cadastrar(usuario)
+            .then(results => {
+                const msg = results.mensagem
+                Swal.fire({
+                    title: 'Usuario',
+                    text: msg,
+                    icon: 'success',
+                })
+                $location.path('/home/confirm')
+
+            })
             .catch(error => {
-                console.log(error)
+                const msg = error.mensagem
+                Swal.fire({
+                    title: 'Erro',
+                    text: msg,
+                    icon: 'error',
+                })
             })
     }
 });

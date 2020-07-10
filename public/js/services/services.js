@@ -85,7 +85,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
                         });
                     });
                 }
-                //se nao existir ele ira criar uma nova informação de livro no banco 
+                //se nao existir ele ira criar uma nova informação de usuario no banco 
                 else {
                     recursoUser.save(usuario, function () {
                         $rootScope.$broadcast(evento);
