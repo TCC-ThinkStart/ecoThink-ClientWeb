@@ -1,14 +1,19 @@
-angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin, recursoFotoUser, cadastroDeFotoPerfil, recursoUser, cadastroDeUsuario, $rootScope) {
+angular.module('ecothink').controller('EditarPerfilController', function ($scope, $http, recursoLogin, recursoFoto, recursoFotoUser, cadastroDeFotoPerfil, recursoUser, cadastroDeUsuario, $rootScope) {
     recursoLogin.verify;
     $rootScope.isLogin = false;
     $rootScope.isUser = true;
     recursoLogin.setProfile;
-    $scope.PreviewImage = $rootScope.api + '/' + recursoLogin.getProfile;
+    //$scope.PreviewImage = $rootScope.api + '/' + recursoLogin.getProfile;
     $scope.nome = recursoLogin.getName;
+
 
 
     recursoUser.get({ usuarioId: recursoLogin.userCode }, (results) => {
         $scope.usuario = results
+        // capturando o id de foto de perfil para mostrar
+        recursoFoto.get({ usuarioId: results.idFotoPerfil }, (foto) => {
+            $scope.PreviewImage = $rootScope.api + '/' + foto.url
+        })
     })
 
     $scope.SelectFile = (e) => {
