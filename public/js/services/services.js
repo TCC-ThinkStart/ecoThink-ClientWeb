@@ -54,7 +54,7 @@ angular.module('meusServicos', ['ngResource', 'ngCookies'])
 
     })
     .factory('recursoUser', function ($resource, $rootScope) {
-        return $resource($rootScope.api + '/usuario/:usuarioId', {
+        return $resource($rootScope.api + '/usuario/:usuarioId', null, {
             update: {
                 method: 'put'
             }
