@@ -113,4 +113,14 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
             return true
         }
     }
+
+    $scope.submitar = (event) => {
+        if (event.img) {
+
+            return true
+        } else {
+
+            return false
+        }
+    }
 }); 
