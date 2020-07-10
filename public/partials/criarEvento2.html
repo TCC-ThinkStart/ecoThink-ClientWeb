@@ -10,16 +10,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <nav class="nav justify-content-center">
-                    <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link" id="evento-home-tab" data-toggle="tab" href="#evento-home"
-                            role="tab" aria-controls="nav-home" aria-selected="true">Nome</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                            role="tab" aria-controls="nav-profile" aria-selected="false">Categoria</a>
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
-                            role="tab" aria-controls="nav-contact" aria-selected="false">Cidade</a>
-                    </div>
-                </nav> -->
+
                 <div class="tab-content mt-3 mb-5" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="evento-home" role="tabpanel"
                         aria-labelledby="evento-home-tab">
@@ -34,7 +25,8 @@
                                             <div class="form-group">
                                                 <label>Nome do Evento(Ação Social)</label>
                                                 <input type="text" name="evento" ng-model="event.nome"
-                                                    ng-class="{'is-valid':isValid}" class="form-control form-control-md"
+                                                    ng-class="{'is-valid':isValid}" ng-class="{'is-valid':isValid}"
+                                                    class="form-control form-control-md"
                                                     placeholder="Campanha de Ação Social">
                                                 <div ng-if="isValid" class="valid-feedback">
                                                     Valido!
@@ -44,14 +36,16 @@
                                                 <div class="form-group col-6">
                                                     <label>Data De Inicio</label>
                                                     <input type="text" ng-model="event.dataInicio" ui-mask="99/99/9999"
-                                                        ui-mask-placeholder class="form-control form-control-md ">
+                                                        ui-mask-placeholder ng-class="{'is-valid':isValid}"
+                                                        class="form-control form-control-md ">
                                                     <div ng-if="isValid" class="valid-feedback">
                                                         Valido!
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-6">
                                                     <label>Data De Encerramento</label>
-                                                    <input type="text" ng-model="event.dataFinal" ui-mask="99/99/9999"
+                                                    <input type="text" ng-class="{'is-valid':isValid}"
+                                                        ng-model="event.dataFinal" ui-mask="99/99/9999"
                                                         ui-mask-placeholder class="form-control form-control-md ">
                                                     <div ng-if="isValid" class="valid-feedback">
                                                         Valido!
@@ -60,7 +54,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Descrição</label>
-                                                <textarea ng-model="event.descricao"
+                                                <textarea ng-model="event.descricao" ng-class="{'is-valid':isValid}"
                                                     class="form-control form-control-md "
                                                     placeholder="Descricao do Evento" rows="4">
                                             </textarea>
@@ -77,7 +71,7 @@
                                             <a class="btn btn-block mx-auto  bg-logo p-3 mt-3 mb-4 border-rounded"
                                                 id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
                                                 aria-controls="nav-profile" aria-selected="false"
-                                                ng-click="enviar(event)">
+                                                ng-click="enviar(event)" ng-disabled="verificar1(event)">
                                                 Avançar
                                                 <i class="fas fa-angle-double-right"></i>
                                             </a>

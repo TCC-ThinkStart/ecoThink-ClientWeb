@@ -81,7 +81,7 @@ angular.module('ecothink').controller('EditarPerfilController', function ($scope
 
         }
 
-        console.log(usuario)
+
         const auth = localStorage.getItem('auth')
         if (auth == 'ADM') {
             $http.put($rootScope.api + '/usuario/organizacao/' + usuario.codigo, usuario)

@@ -7,8 +7,21 @@ angular.module('ecothink').controller('EditarEventosController', function ($rout
     $rootScope.isLogin = false;
 
     if ($routeParams.eventoId) {
-        $scope.PreviewImage = $rootScope.api + '/' + recursoLogin.getProfile;
+        //$scope.PreviewImage = $rootScope.api + '/' + recursoLogin.getProfile;
+        $http.get($rootScope.api + '/foto/evento/' + $routeParams.eventoId)
+            .then(imagens => {
+                //evento tem foto
+                if (imagens.data.length == 1) {
+                    //https://s3.amazonaws.com/mapa-da-obra-producao/wp-content/uploads/2019/10/shutterstock_1110036392.png
+                    $scope.PreviewImage = $rootScope.api + '/' + imagens.data[0].url;
 
+                }
+                //evento nao tem foto 
+                else {
+
+                }
+            })
+            .catch(error => console.log(error))
         //apos isso armazenamos um resultado
         recursoEvento.get({ eventoId: $routeParams.eventoId }, (results) => {
             $scope.event = results

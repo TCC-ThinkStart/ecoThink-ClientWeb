@@ -104,4 +104,13 @@ angular.module('ecothink').controller('CriarEventosController', function ($scope
         sessionStorage.clear()
 
     }
+
+    $scope.verificar1 = (event) => {
+        if (event.nome && event.dataInicio && event.dataFinal && event.descricao) {
+            $scope.isValid = true;
+            return false
+        } else {
+            return true
+        }
+    }
 }); 
